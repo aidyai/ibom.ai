@@ -2,6 +2,5 @@
 #!/bin/bash
 
 
-if __name__ == "__main__":
-    modal.serve src.app
+modal serve src.app
 
