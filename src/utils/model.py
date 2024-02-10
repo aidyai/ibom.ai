@@ -1,4 +1,4 @@
-from utils.base import stub, api_image
+from src.utils.base import stub, api_image
 from modal import Volume
 
 

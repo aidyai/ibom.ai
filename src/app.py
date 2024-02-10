@@ -4,7 +4,6 @@ import os
 import json
 import asyncio
 import pathlib
-import uvicorn
 from pathlib import Path
 from io import BytesIO
 
@@ -23,8 +22,8 @@ import modal
 from modal import Image, Mount, asgi_app, web_endpoint
 #from .common import stub
 
-from utils.model import load_model
-from utils.base import JSON_FILE_PATH, EMBEDDING, stub
+from src.utils.model import load_model
+from src.utils.base import JSON_FILE_PATH, EMBEDDING, stub
 
 BASE_DIR = pathlib.Path(__file__).parent
 rate = 16000
