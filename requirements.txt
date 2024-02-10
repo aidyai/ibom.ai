@@ -8,4 +8,4 @@ scipy
 sentencepiece
 torch
 transformers
-ray
+ray[serve]

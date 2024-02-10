@@ -34,25 +34,25 @@
                 
                 <ul class="dropdown-content" role="menu">
                     <li>
-                        <a href="/api/write">WORDS</a>
+                        <a href="/ibom-api/write">WORDS</a>
                         <div class="submenu">
                             <p>Provide textual Ibibio Words/Sentence</p>
                         </div>
                     </li>
                     <li>
-                        <a href="/api/speak">AUDIO</a>
+                        <a href="/ibom-api/speak">AUDIO</a>
                         <div class="submenu">
                             <p>Provide Voice Recording in Ibibio</p>
                         </div>
                     </li>
                     <li>
-                        <a href="/api">FILES</a>
+                        <a href="/ibom-api">FILES</a>
                         <div class="submenu">
                             <p>Provide textual Ibibio Words/Sentence</p>
                         </div>
                     </li>
                     <li>
-                        <a href="/api">SUGGEST</a>
+                        <a href="/ibom-api">SUGGEST</a>
                         <div class="submenu">
                             <p>Suggest Words/Sentences in Ibibio</p>
                         </div>
@@ -86,7 +86,7 @@
                             contributors to improve the quality. It’s that simple!
                         </p>
                     <br>
-                    <button class="show-more" type="button" onclick="window.location.href='/api/speak'">Try Out</button>
+                    <button class="show-more" type="button" onclick="window.location.href='/ibom-api/speak'">Try Out</button>
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
 
     </body>
 
-    <script defer  src="{{ url_for('static', path='./js/pre.js') }}"></script>
+    <script defer  src="{{ url_for('static', path='/js/pre.js') }}"></script>
 
     
     </html>

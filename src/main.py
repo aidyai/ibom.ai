@@ -17,14 +17,19 @@ from typing import Optional
 from pydantic import BaseModel
 from fastapi import FastAPI, File, Form, UploadFile, Request, Query, HTTPException
 from fastapi.responses import StreamingResponse, FileResponse, PlainTextResponse
-from fastapi import Request
+from starlette.requests import Request
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+import ray
+from ray import serve
+
 from src.utils.search import load_json_file, search_
+from src.utils.base import EMBEDDING, JSON_FILE_PATH
+
 
 processor = SpeechT5Processor.from_pretrained("microsoft/speecht5_tts")
 model = SpeechT5ForTextToSpeech.from_pretrained("microsoft/speecht5_tts")
@@ -34,19 +39,11 @@ vocoder = SpeechT5HifiGan.from_pretrained("microsoft/speecht5_hifigan")
 BASE_DIR = pathlib.Path(__file__).parent
 
 app = FastAPI()
-app.mount("/static", StaticFiles(directory= BASE_DIR/"static"), name="static")
-templates = Jinja2Templates(directory=str(BASE_DIR/"template"))
+app.mount("/frontend/static", StaticFiles(directory= BASE_DIR/"frontend/static"), name="static")
+templates = Jinja2Templates(directory=str(BASE_DIR/"frontend/template"))
 
-# Assuming that the JSON file is in the same directory as this script
-JSON_FILENAME = 'dict5k_.json'
-EMBEDDING_NAME = 'embedding.npy'
-JSON_FILE_PATH = BASE_DIR / JSON_FILENAME
-EMBEDDING = BASE_DIR / EMBEDDING_NAME
+
 rate = 16000
-# Save the audio file to the backend folder
-backend_folder_path = BASE_DIR / "utils"
-file_path = backend_folder_path / "generated_audio.wav"
-
 
 
 class TextRequest(BaseModel):
