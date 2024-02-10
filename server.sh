@@ -1,6 +1,4 @@
 #import modal
 #!/bin/bash
-
-
-modal serve src.app
+#python !modal serve src.app
 
