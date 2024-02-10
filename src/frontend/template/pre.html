@@ -1,0 +1,107 @@
+<!-- new_page.html -->
+{% extends "ndex.html" %}
+
+{% block content %}
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to your custom CSS file -->
+    <link href="{{ url_for('static', path='/css/pre.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/css/co.css') }}" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"  />
+    <!-- Google Fonts -->
+    <link  href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet"  />
+    <!-- Stylesheet -->
+    
+    <body>
+
+        <div class="contain">
+            <div style="text-align: center; margin-top: 2rem;">
+                <h2>Data Collection Platform</h2>
+                <p>Click dropdown menu</p>
+            </div>
+            
+            <div class="dropdown">
+                <input type="checkbox" id="dropdown" />
+                <label for="dropdown" class="dropdown-btn">
+                    <span>Switch Tasks</span>
+                    <span class="arrow"></span>
+                </label>
+                
+                <ul class="dropdown-content" role="menu">
+                    <li>
+                        <a href="/api/write">WORDS</a>
+                        <div class="submenu">
+                            <p>Provide textual Ibibio Words/Sentence</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/api/speak">AUDIO</a>
+                        <div class="submenu">
+                            <p>Provide Voice Recording in Ibibio</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/api">FILES</a>
+                        <div class="submenu">
+                            <p>Provide textual Ibibio Words/Sentence</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/api">SUGGEST</a>
+                        <div class="submenu">
+                            <p>Suggest Words/Sentences in Ibibio</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="text">
+                <div class="inner">
+                    <div class="title">
+                        <h1>Mozilla Common Voice is an initiative to help teach machines how real people speak.</h1>
+                    </div>
+                    <div class="description">
+                        <p>Voice is natural, voice is human. That’s why we’re excited about creating usable voice technology
+                            for our machines. But to create voice systems, developers need an extremely large amount of voice
+                            data.
+                        </p>
+                    <br>
+                        <p>Most of the data used by large companies isn’t available to the majority of people. We think that
+                            stifles innovation. So we’ve launched Common Voice, a project to help make voice recognition open
+                            and accessible to everyone.
+                        </p>
+
+                        <p>
+                            Recording voice clips is an integral part of building our open dataset; some would say it's the fun part too.
+                        </p>
+                    <br>
+                        <p>Now you can donate your voice to help us build an open-source voice database that anyone can use
+                            to make innovative apps for devices and the web. Read a sentence to help machines learn how real people speak. Check the work of other
+                            contributors to improve the quality. It’s that simple!
+                        </p>
+                    <br>
+                    <button class="show-more" type="button" onclick="window.location.href='/api/speak'">Try Out</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+       
+
+    </body>
+
+    <script defer  src="{{ url_for('static', path='./js/pre.js') }}"></script>
+
+    
+    </html>
+
+{% endblock %}

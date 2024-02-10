@@ -1,0 +1,423 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    /* Add this rule at the beginning or in the appropriate section of your CSS */
+    font-family: 'EB Garamond', serif;
+}
+
+/* Header Styling */
+.header {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.header h1 {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+.header-container {
+    width: 80%;
+    max-width: 583px;
+    margin: 0 auto;
+}
+
+nav {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 9px 0;
+}
+
+nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Body Styling */
+.body-container {
+    width: 80%;
+    max-width: 583px;
+    margin: 0 auto;
+    border-radius: 6px;
+    padding: 0;
+}
+
+.fielded {
+    margin: 20px 0;
+}
+
+.field1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 70px;
+}
+
+.field2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+    font-size: 24px;
+}
+
+
+
+.search-input {
+    border: 0;
+    border-bottom: solid #9c74f3;
+    border-radius: 4px;
+    width: 300px;
+    height: 30px;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-btn {
+    background-color: #9c74f3;
+    color: white;
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    border: 0;
+    border-radius: 5px;
+}
+
+.search-btn:hover {
+    background-color: #814fef;
+}
+
+.field2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+    font-size: 24px; 
+}
+
+
+/* Clear the float to prevent layout issues */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.fa-volume-up:before {
+    content: "\f028";
+    color: #000000;
+}
+
+
+
+i {
+    user-select: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #868787;
+}
+
+.phonetic-text {
+    color: #ff0000;
+}
+
+.field3 {
+    text-align: justify;
+}
+
+.definition {
+    color: #4b0202;
+}
+
+
+.separator {
+    border: none;
+    height: 1px;
+    background-color: #9d9abd;
+    margin: -52px 0;
+}
+
+
+
+
+.related-terms,
+.example-sentences {
+    margin-top: 20px; /* Add spacing between sections */
+}
+
+.related-terms h3,
+.example-sentences h3 {
+    font-size: 18px;
+}
+
+
+.related-terms {
+    margin-top: 20px; /* Add spacing between sections */
+}
+
+.related-terms h3 {
+    font-size: 18px;
+}
+
+.related-terms-list {
+    margin-top: -15px; /* Adjust the margin as needed */
+    white-space: nowrap; /* Prevent line breaks */
+}
+
+
+
+
+
+.english-sentence,
+.french-sentence {
+    margin-top: 10px;
+}
+
+.example-sentences {
+    margin-top: 10px; /* Adjust the margin as needed */
+}
+
+.english-sentence,
+.french-sentence {
+    margin-top: -15px; /* Adjust the margin between sentences */
+}
+
+
+
+
+.line-with-icon {
+    position: relative;
+    margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.separator-line {
+    border: none;
+    height: 1px;
+    background-color: #9d9abd;
+    margin: 0;
+}
+
+.icon8-add {
+    position: absolute;
+    top: -10px; /* Adjust the position as needed */
+    right: 0;
+    font-size: 20px;
+    color: #9d9abd; /* Adjust the color as needed */
+}
+
+
+
+
+
+.line-icons-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px; /* Adjust the margin as needed */
+    position: relative; /* Add relative positioning */
+}
+
+.horizontal-line {
+    border: none;
+    height: 1px;
+    background-color: #000000; /* Adjust the color as needed */
+    flex-grow: 1;
+    margin: 0 10px; /* Adjust the margin as needed */
+    position: absolute; /* Add absolute positioning */
+    top: 50%; /* Adjust the vertical position */
+    transform: translateY(-50%); /* Center the line vertically */
+}
+
+
+img.plus-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Additional styling as needed */
+.plus-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px; /* Adjust the margin as needed */
+}
+
+
+
+
+
+
+
+
+
+
+
+.img-ah {
+    max-width: 100%;
+    overflow: hidden; /* Hide overflow if the image is larger than the container */
+    margin-top: -22px;
+
+}
+
+.background-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Center the image within its container */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+    background-color: #f7cfcf;
+    color: #000;
+    padding: 20px 0;
+    margin-top: -19px;
+    padding-bottom: 0px;
+}
+
+.footer-container {
+    margin-bottom: 20px; /* Reduce the margin-bottom for the container */
+}
+
+.footer-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo img {
+    width: 32px;
+    height: 32px;
+}
+
+.footer-text {
+    max-width: 529px;
+    margin-bottom: -24px;
+}
+
+.email-input {
+    padding: 8px;
+    width: 100%;
+    max-width: 200px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+}
+
+.join-btn {
+    background-color: #fff;
+    color: #333;
+    padding: 10px 15px; /* Adjust padding to make it visually balanced */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.social-icons {
+    display: flex;
+    margin-top: 20px;
+}
+
+.social-icon {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+
+.footer-nav li {
+    margin-right: 20px;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #9c74f3; /* Change the color on hover */
+}
+
+.copyright {
+    margin-top: 20px;
+}
+
+
+
+
+
+
+/* Media query for responsiveness */
+@media only screen and (max-width: 768px) {
+    .footer-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-nav {
+        margin-top: 20px;
+    }
+
+    .footer-nav li {
+        margin-right: 0;
+        margin-bottom: 10px; /* Add spacing between list items */
+    }
+
+    .email-input,
+    .join-btn {
+        width: 100%;
+    }
+}

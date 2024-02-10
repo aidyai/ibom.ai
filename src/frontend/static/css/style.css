@@ -1,0 +1,638 @@
+@import url('https://fonts.googleapis.com/css2?family=Hepta+Slab:wght@1..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    /* Add this rule at the beginning or in the appropriate section of your CSS */
+    font-family: 'EB Garamond', serif;
+}
+
+/* Header Styling */
+.header {
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+
+.logo {
+    display: block;
+    text-align: center;
+}
+
+.logo-img {
+    max-width: 100%; /* Set the maximum width to prevent distortion */
+    height: auto; /* Maintain the aspect ratio */
+    width: 150px; /* Set the initial width as needed */
+    height: 150px; /* Set the initial height as needed */
+}
+
+
+
+
+/* Add the following styles for the hamburger menu */
+.nav-toggle {
+    display: none;
+    cursor: pointer;
+    order: 1; /* Move the hamburger to the end of the flex container */
+    margin-left: auto; /* Push it to the right */
+}
+
+.bar {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+
+.header h1 {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+
+.nav-header {
+    margin-right: 20px; /* Adjust the margin between logo and text */
+}
+
+.logo img {
+    vertical-align: middle; /* Align the image vertically */
+}
+
+.header-container {
+    width: 80%;
+    max-width: 618px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 75px;
+}
+
+nav {
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    padding: 9px 0;
+}
+
+nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-family: "Hepta Slab", serif;
+    font-size: 1rem;
+}
+
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+
+/* SEARCH STYLE*/
+.search-bar {
+    margin: auto;
+    padding-top: 55px;
+}
+
+/* Style for the search container */
+#search-container {
+    text-align: center;
+    margin-top: 50px; /* Adjust the margin as needed */
+}
+
+#search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 408px;
+    margin: 0 auto;
+    padding-top: 37px;
+}
+
+/* Style for the search label */
+#search-form label {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+/* Style for the search input */
+#search-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1;
+}
+
+/* Style for the submit button */
+#search-form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hover effect for the submit button */
+#search-form button:hover {
+    background-color: #45a049;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Body Styling */
+.body-container {
+    width: 80%;
+    max-width: 698px;
+    margin: 0 auto;
+    border-radius: 6px;
+    padding: 0;
+}
+
+.fielded {
+    margin: 72px 0;
+}
+
+.field1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 70px;
+}
+
+
+
+.search-input {
+    border: 0;
+    border-bottom: solid #9c74f3;
+    border-radius: 4px;
+    width: 300px;
+    height: 30px;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-btn {
+    background-color: #9c74f3;
+    color: white;
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    border: 0;
+    border-radius: 5px;
+}
+
+.search-btn:hover {
+    background-color: #814fef;
+}
+
+.term {
+    display: flex;
+    align-items: center;
+    margin-top: -59px;
+    position: relative;
+}
+
+
+.Word {
+    font-size: 40px;
+    margin-right: 28px;
+}
+
+.term img {
+    width: 24px;
+    height: 24px;
+    margin-top: 9px;
+    margin-left: 2px;
+}
+
+
+/* Clear the float to prevent layout issues */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+.fa-volume-up-container {
+    position: relative;
+}
+
+.fa-volume-up:before {
+    content: "\f028";
+    color: #000000;
+    position: absolute;
+    top: 50%; /* Center the icon vertically */
+    right: 0;
+    transform: translateY(-50%); /* Adjust vertical position */
+}
+
+
+
+i {
+    user-select: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #868787;
+}
+
+.pos {
+    color: #ff0000;
+    margin-top: -21px;
+}
+
+
+.field3 {
+    text-align: justify;
+    position: relative;
+    background-color: rgb(255 255 255 / 77%);
+    padding: 12px;
+    border-radius: 7px;
+    border: 0;
+}
+
+.definition {
+    margin-bottom: 10px;
+}
+
+.definition p {
+    margin: 0;
+}
+
+
+
+.definition {
+    color: #4b0202;
+}
+
+
+.separator {
+    border: none;
+    height: 1px;
+    background-color: #9d9abd;
+    margin: -8px 0;
+}
+
+
+
+
+.related-terms,
+.example-sentences {
+    margin-top: 20px; /* Add spacing between sections */
+}
+
+.related-terms h3,
+.example-sentences h3 {
+    font-size: 18px;
+}
+
+
+.related-terms {
+    margin-top: 20px; /* Add spacing between sections */
+}
+
+.related-terms h3 {
+    font-size: 18px;
+}
+
+.related-terms-list {
+    margin-top: -15px; /* Adjust the margin as needed */
+    white-space: nowrap; /* Prevent line breaks */
+}
+
+
+
+
+
+
+.line-with-icon {
+    position: relative;
+    margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.separator-line {
+    border: none;
+    height: 1px;
+    background-color: #9d9abd;
+    margin: 0;
+}
+
+.icon8-add {
+    position: absolute;
+    top: -10px; /* Adjust the position as needed */
+    right: 0;
+    font-size: 20px;
+    color: #9d9abd; /* Adjust the color as needed */
+}
+
+
+
+
+
+.line-icons-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px; /* Adjust the margin as needed */
+    position: relative; /* Add relative positioning */
+}
+
+.horizontal-line {
+    border: none;
+    height: 1px;
+    background-color: #000000; /* Adjust the color as needed */
+    flex-grow: 1;
+    margin: 0 10px; /* Adjust the margin as needed */
+    position: absolute; /* Add absolute positioning */
+    top: 50%; /* Adjust the vertical position */
+    transform: translateY(-50%); /* Center the line vertically */
+}
+
+
+img.plus-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Additional styling as needed */
+.plus-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.img-ah {
+    width: 100%;
+    position: relative;
+    margin-top: 384px;
+    margin-bottom: 0px;
+}
+
+.background-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+
+.footer {
+    background-color: #ded9bc;
+    color: #000;
+    padding: 3px 0;
+    padding-bottom: 65px;
+}
+
+
+.footer-container {
+    width: 100%;
+    max-width: 739px;
+    margin: 0 auto;
+    padding: 0 20px; /* Add padding to create spacing from the edges */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+
+
+.footer-logo img {
+    width: 32px;
+    height: 32px;
+}
+
+
+.footer-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-text {
+    max-width: 529px;
+    margin-bottom: -24px;
+}
+
+
+.register-h{
+    margin-top: 38px;
+}
+
+.email-input {
+    padding: 8px;
+    width: 100%;
+    max-width: 200px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+}
+
+
+.join-btn {
+    background-color: #fff;
+    color: #333;
+    padding: 10px 15px; /* Adjust padding to make it visually balanced */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.social-icons {
+    display: flex;
+    margin-top: -3px;
+}
+
+.social-icon {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+
+
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+
+.footer-nav li {
+    margin-right: 20px;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: #9c74f3; /* Change the color on hover */
+}
+
+.copyright {
+    margin-top: 61px;
+    position: absolute;
+}
+
+
+
+
+/* Add a media query to adjust the layout for smaller screens */
+
+/* Media query for responsiveness */
+@media only screen and (max-width: 768px) {
+    .footer-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-nav {
+        margin-top: 20px;
+    }
+
+    .footer-nav li {
+        margin-right: 0;
+        margin-bottom: 10px; /* Add spacing between list items */
+    }
+
+    .email-input,
+    .join-btn {
+        width: 100%;
+    }
+}
+
+
+
+/* General styles for larger screens */
+nav.header ul {
+    display: flex;
+}
+
+nav.header ul li {
+    margin-right: 20px;
+}
+
+/* Styles for smaller screens */
+@media only screen and (max-width: 750px) {
+    nav.header ul {
+        display: block;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        z-index: 1;
+        text-align: left;
+        padding-top: 60px;
+    }
+
+    .nav-list.show {
+        display: flex;
+    }
+
+    .nav-list li {
+        margin-bottom: 20px;
+    }
+
+    .nav-list a {
+        color: #000;
+        font-family: "Hepta Slab", serif;
+        font-size: 1.5rem;
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+    }
+
+    .nav-list a:hover {
+        color: #9c74f3;
+    }
+
+    .close-btn {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        cursor: pointer;
+        font-size: 24px;
+        color: #000;
+    }
+}
+
+/* Hide close button on larger screens */
+@media only screen and (min-width: 720px) {
+    .close-btn {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: none;
+    }
+
+    nav.header ul {
+        display: flex;
+    }
+}

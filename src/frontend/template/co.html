@@ -1,0 +1,96 @@
+<!-- new_page.html -->
+{% extends "ndex.html" %}
+
+{% block content %}
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to your custom CSS file -->
+    <link href="{{ url_for('static', path='/css/co.css') }}" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"  />
+    <!-- Google Fonts -->
+    <link  href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet"  />
+    <!-- Stylesheet -->
+    
+    <body>
+
+      <div class="container">
+        <div style="text-align: center; margin-top: 2rem;">
+            <h2>Data Collection Platform</h2>
+            <p>Click dropdown menu</p>
+        </div>
+        
+        <div class="dropdown">
+            <input type="checkbox" id="dropdown" />
+            <label for="dropdown" class="dropdown-btn">
+                <span>Switch Tasks</span>
+                <span class="arrow"></span>
+            </label>
+            
+            <ul class="dropdown-content" role="menu">
+                <li>
+                    <a href="/api/write">WORDS</a>
+                    <div class="submenu">
+                        <p>Provide textual Ibibio Words/Sentence</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="/api/speak">AUDIO</a>
+                    <div class="submenu">
+                        <p>Provide Voice Recording in Ibibio</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="/api">FILES</a>
+                    <div class="submenu">
+                        <p>Provide textual Ibibio Words/Sentence</p>
+                    </div>
+                </li>
+                <li>
+                    <a href="/api">SUGGEST</a>
+                    <div class="submenu">
+                        <p>Suggest Words/Sentences in Ibibio</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="carded-container" id="card">
+            <p class="record-text">Record in Ibibio</p>
+            <span id="counter">0:00</span>
+            <canvas id="canvas"></canvas>
+            <div class="cards" id="textCard">
+                <p id="displayText">You're doing great!</p>
+            </div>
+            <div class="im-ah">
+                <img src="{{ url_for('static', path='img/pod-bgout.png')}}" alt="Background Image" class="im-ah-image">
+            </div>
+            <!-- Use an icon instead of button text -->
+            <button onclick="toggleRecording()">
+                <i id="recordIcon" class="fa-solid fa-microphone"></i>
+            </button>
+            <button onclick="displayRandomText()"><i class="fa-solid fa-cloud-arrow-up"></i></button>
+            <audio src="" id="audioElement" controls style="display: none;"></audio>
+        </div>
+
+
+      </div>
+
+
+       
+
+    </body>
+
+    <script defer  src="{{ url_for('static', path='/js/api.js') }}"></script>
+    <script defer  src="{{ url_for('static', path='/js/dynamic.js') }}"></script>
+
+
+    
+    </html>
+
+{% endblock %}

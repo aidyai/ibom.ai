@@ -1,0 +1,30 @@
+/* Style for the example sentences section */
+.example-sentences {
+    margin-top: -12px;
+}
+
+/* Style for the language labels */
+.language-label {
+    color: #555;
+    margin: auto;
+}
+
+/* Style for each sentence container */
+.sentence {
+    border-radius: 7px;
+    padding: 10px;
+    margin-bottom: 0px;
+    border-radius: 5px;
+    background-color: rgb(255 255 255 / 77%);
+    text-align: justify;
+}
+
+/* Style for English sentence */
+.english-sentence {
+    color: #ee5858;
+}
+
+/* Style for French sentence */
+.french-sentence {
+    color: #ee5858; /* Blue color for French */
+}

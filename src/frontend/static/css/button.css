@@ -1,0 +1,73 @@
+
+:root {
+    --space: 1.2rem;
+    --hover-color: hsl(331, 66%, 68%);
+    --white: hsl(0, 0%, 97%);
+    --black: hsl(0, 0%, 4%);
+    --border-width: 3px;
+    --icon-size: 1em;
+    --radius: 0.25em;
+    --button-margin: calc(var(--space) / 2);
+}
+
+.button {
+    border-radius: var(--radius);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    --bg: var(--black);
+    background: var(--bg);
+    color: var(--white);
+    font-weight: bold;
+    padding: calc(var(--space) / 2) var(--space);
+    margin: var(--button-margin);
+    border: var(--border-width) solid var(--bg);
+    position: relative; /* added for icon positioning */
+}
+
+.button img {
+    position: absolute;
+    left: calc(var(--space) / 2);
+}
+
+[type=submit], [type=reset], button, html [type=button] {
+    -webkit-appearance: button;
+}
+
+button, select {
+    text-transform: none;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: sans-serif;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+button, hr, input {
+    overflow: visible;
+}
+
+
+
+
+.button.has-icon {
+    position: relative;
+}
+
+.button.has-icon img {
+    position: absolute;
+    left: calc(var(--space) / 2);
+}
+
+.button.has-icon:not(:empty) {
+    padding-left: 15px;
+    width: 45px;
+    height: 10px;
+    position: relative;
+    display: flex;
+    margin-left: auto;
+    margin-top: 16px;
+    font-size: 0.78em;
+}

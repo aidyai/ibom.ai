@@ -1,0 +1,98 @@
+<!-- new_page.html -->
+{% extends "ndex.html" %}
+
+{% block content %}
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/co.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/demo.css') }}">
+
+    <!-- Add FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofMl5U8C+sr5Nk2dUmbd5dPUEIS5aZimbD" crossorigin="anonymous">
+    <!-- Font Awesome Icons -->
+    <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <!-- Google Fonts -->
+    <link  href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet"/>
+    <!-- Stylesheet -->
+    
+    <body>
+
+        <div class="container">
+            <div style="text-align: center; margin-top: 2rem;">
+                <h2>Data Collection Platform</h2>
+                <p>Click dropdown menu</p>
+            </div>
+            
+            <div class="dropdown">
+                <input type="checkbox" id="dropdown" />
+                <label for="dropdown" class="dropdown-btn">
+                    <span>Switch Tasks</span>
+                    <span class="arrow"></span>
+                </label>
+                
+                <ul class="dropdown-content" role="menu">
+                    <li>
+                        <a href="/api/write">WORDS</a>
+                        <div class="submenu">
+                            <p>Provide textual Ibibio Words/Sentence</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/api/speak">AUDIO</a>
+                        <div class="submenu">
+                            <p>Provide Voice Recording in Ibibio</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/api">FILES</a>
+                        <div class="submenu">
+                            <p>Provide textual Ibibio Words/Sentence</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/api">SUGGEST</a>
+                        <div class="submenu">
+                            <p>Suggest Words/Sentences in Ibibio</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        
+            <div class="card2d" id="card">
+                <div id="randomTextContainer">
+                    <p id="randomText">The old bookshelf creaks under the weight of well-worn novels</p>
+                </div>
+                <form id="feedbackForm">
+                    <input type="text" id="user-input" placeholder="Enter the text in the image" />
+                    <div class="im-ah">
+                        <img src="{{ url_for('static', path='img/tx-bg.png')}}" alt="Background Image" class="im-ah-image">
+                    </div>
+                    <button type="button" onclick="submitFeedback()">Submit</button>
+                    <div id="successMessage" style="display: none;">Successfully Uploaded! 😊</div>
+                </form>
+            </div
+        </div>
+
+
+
+    
+
+
+    </body>
+
+    <script src="{{ url_for('static', path='/js/demo.js') }}"></script>
+    <script src="{{ url_for('static', path='/js/dynamic.js') }}"></script>
+
+
+    
+    </html>
+
+
+
+
+
+{% endblock %}

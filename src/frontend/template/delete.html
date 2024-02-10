@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700&display=swap" rel="stylesheet">
+    <!-- Add this link tag in the head section of your HTML file -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <meta name="title" content="">
+    <meta name="description" content="">
+
+    
+    <!--<link rel="icon" type="image/png" href="{{ url_for('static', path='/icons/icon.png') }}" />-->    
+    <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/css/search.css') }}" rel="stylesheet">
+
+
+    <title>---</title>
+</head>
+
+<body>
+
+
+
+    <nav class="header">
+        <div class="header-container">
+            <div class="nav-header">
+                <a href="/" class="logo">
+                    <img class="logo-img" src="{{ url_for('static', path='/img/ikọ.png') }}" alt="img"/>
+                </a>
+            </div>
+            <div class="nav-toggle" onclick="toggleNav()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="nav-list" id="navList"> <!-- Change class to id -->
+                <!-- Close button to close the navigation -->
+                <span class="close-btn" onclick="toggleNav()">✖</span>
+                <!-- Your navigation links go here -->
+                <ul>
+                    <li><a href="/ibomtranslate">Ibomtranslate</a></li>
+                    <li><a href="/chat">IbomGpt</a></li>
+                    <li><a href="/ibom-api">IbomApi</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+
+
+    <!-- Define a background image tag -->
+    <img src="{{ url_for('static', path='img/bggysz.png')}}" alt="Background Image" class="background-image">
+    
+
+    <div id="content">
+        {% block content %}
+
+
+        <div class="search-center-container">
+            <div class="search-container">
+                <form class="search-box" action="/search" method="get" id="s-f">
+                    <img width="28" height="28" src="https://img.icons8.com/ios/28/search--v1.png" alt="search--v1"/>
+                    <input type="search" name="query" id="search-input" placeholder="Search..." required>
+                    <button type="submit" class="hidden-submit"></button>
+                </form>
+            </div>
+        </div>
+
+
+
+        <div class="body-container">
+            <div class="fielded">
+                <div class="term">
+                    <h1 class="Word">ufiin</h1>
+                    <audio src="" class="phonetics-audio"></audio>
+                    <img width="50" height="50" src="https://img.icons8.com/material-rounded/50/speaker.png" alt="speaker"/>
+                </div>
+                <h3 class="pos">noun</h3>
+        
+                <div class="field3">
+                    <div class="definition">
+                        <p>1. Left (direction).</p>
+                    </div>
+                    <div class="definition">
+                        <p>2. Another definition.</p>
+                    </div>
+                    <div class="definition">
+                        <p>3. Yet another definition.</p>
+                    </div>
+                    <!-- Add more definitions as needed -->
+                </div>
+        
+                <!-- Horizontal Line in Front of H3 and Icons8 Plus Icon -->
+                <div class="line-icons-container">
+                    <h2>Example Sentences</h2>
+                    <img width="24" height="24" src="https://img.icons8.com/material-rounded/24/plus--v2.png" alt="plus--v2" class="plus-icon"/>
+                </div>
+        
+                <!-- Example Sentences -->
+                <div class="example-sentences">
+                    <div class="english-sentence">
+                        <p>ake sanga aduk ufiin .</p>
+                    </div>
+                    <div class="french-sentence">
+                        <p>He went towards the left.</p>
+                    </div>
+                </div>
+                <!-- Related Terms -->
+                <div class="related-terms">
+                    <h2>Related Terms</h2>
+                    <p class="related-terms-list">ufion, ufien</p>
+                </div>
+                <div class="separator"></div>
+            </div>
+
+            <button onclick="editFields()">Edit</button>
+
+
+        </div>
+
+        <div class="body-container">
+            {% if results %}
+                <div class="fielded">
+                    <div class="term">
+                        <h1 class="Word">{{ results[0]['term'] }}</h1>
+                        <audio src="" class="phonetics-audio"></audio>
+                        <img width="50" height="50" src="https://img.icons8.com/material-rounded/50/speaker.png" alt="speaker"/>
+                    </div>
+                    <h3 class="pos">{{ results[0]['pos'] }}</h3>
+        
+                    <div class="field3">
+                        {% for index in range(1, results[0]['definitions']|length + 1) %}
+                            <div class="definition">
+                                <p>{{ index }}. {{ results[0]['definitions'][index - 1] }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+        
+                    <div class="line-icons-container">
+                        <h2>Example Sentences</h2>
+                        <img width="24" height="24" src="https://img.icons8.com/material-rounded/24/plus--v2.png" alt="plus--v2" class="plus-icon"/>
+                    </div>
+        
+                    <!-- Related Terms -->
+                    <div class="related-terms">
+                        <h2>Related Terms</h2>
+                        <p class="related-terms-list">{{ results[0]['related_terms'] }}</p>
+                    </div>
+                    <div class="separator"></div>
+                </div>
+            {% else %}
+                <p>Not found</p>
+            {% endif %}
+        </div>
+        
+
+        <div class="body-container">
+            <div class="fielded" id="editableContent">
+                <!-- Your existing content -->
+                <div class="term">
+                    <h1 class="Word">ufiin</h1>
+                    <audio src="" class="phonetics-audio"></audio>
+                    <img width="50" height="50" src="https://img.icons8.com/material-rounded/50/speaker.png" alt="speaker"/>
+                </div>
+                <h3 class="pos">noun</h3>
+        
+                <div class="field3">
+                    <div class="definition">
+                        <p>1. Left (direction).</p>
+                    </div>
+                    <div class="definition">
+                        <p>2. Another definition.</p>
+                    </div>
+                    <div class="definition">
+                        <p>3. Yet another definition.</p>
+                    </div>
+                    <!-- Add more definitions as needed -->
+                </div>
+        
+                <!-- Horizontal Line in Front of H3 and Icons8 Plus Icon -->
+                <div class="line-icons-container">
+                    <h2>Example Sentences</h2>
+                    <img width="24" height="24" src="https://img.icons8.com/material-rounded/24/plus--v2.png" alt="plus--v2" class="plus-icon"/>
+                </div>
+        
+                <!-- Example Sentences -->
+                <div class="example-sentences">
+                    <div class="english-sentence">
+                        <p>ake sanga aduk ufiin .</p>
+                    </div>
+                    <div class="french-sentence">
+                        <p>He went towards the left.</p>
+                    </div>
+                </div>
+                <!-- Related Terms -->
+                <div class="related-terms">
+                    <h2>Related Terms</h2>
+                    <p class="related-terms-list">ufion, ufien</p>
+                </div>
+                <div class="separator"></div>
+            </div>
+    
+            <!-- Edit button -->
+            <button onclick="editFields()">Edit</button>
+    
+            <!-- Edit form (initially hidden) -->
+            <div id="editForm" style="display: none;">
+                <h2>Edit Dictionary Entry</h2>
+                <form id="editDictionaryForm" onsubmit="saveContent(); return false;">
+                    <label for="editedTerm">Term:</label>
+                    <input type="text" id="editedTerm" value="ufiin">
+    
+                    <label for="editedPos">Part of Speech:</label>
+                    <input type="text" id="editedPos" value="noun">
+    
+                    <label for="editedDefinitions">Definitions:</label>
+                    <textarea id="editedDefinitions">
+                        1. Left (direction).
+                        2. Another definition.
+                        3. Yet another definition.
+                    </textarea>
+    
+                    <label for="editedRelatedTerms">Related Terms:</label>
+                    <input type="text" id="editedRelatedTerms" value="ufion, ufien">
+    
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+
+
+        <div class="body-container">
+            {% if results %}
+                <div class="fielded">
+                    <div class="term">
+                        <h1 class="Word">{{ results[0]['term'] }}</h1>
+                        <audio class="phonetics-audio"></audio>
+                        <img id="speakerIcon" width="50" height="50" src="https://img.icons8.com/material-rounded/50/speaker.png" alt="speaker" onclick="playTextToSpeech('{{ results[0]['term'] }}')"/>
+
+                    </div>
+
+                    <h3 class="pos">{{ results[0]['pos'] }}</h3>
+        
+                    <div class="field3">
+                        {% for index in range(1, results[0]['definitions']|length + 1) %}
+                            <div class="definition">
+                                <p>{{ index }}. {{ results[0]['definitions'][index - 1] }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+        
+                    <div class="line-icons-container">
+                        <h2>Example Sentences</h2>
+                        <img width="24" height="24" src="https://img.icons8.com/material-rounded/24/plus--v2.png" alt="plus--v2" class="plus-icon"/>
+                    </div>
+        
+                    <!-- Related Terms -->
+                    <div class="related-terms">
+                        <h2>Related Terms</h2>
+                        <p class="related-terms-list">{{ results[0]['related_terms'] }}</p>
+                    </div>
+                    <div class="separator"></div>
+                </div>
+            {% else %}
+                <p>Not found</p>
+            {% endif %}
+        </div>
+        
+        
+        
+        
+        
+        
+
+        
+        {% endblock %}
+    </div>
+</body>
+
+    <div class="img-ah">
+        <img src="{{ url_for('static', path='img/navt.png')}}" alt="Background Image" class="background-image">
+    </div>
+
+
+    
+    <!-- Footer -->
+    <footer class="footer">
+    <!-- Footer -->
+    <footer class="foter">
+        <div class="footer-container">
+            <div class="footer-text">
+                <h2>Learning Ibom Languages easy, free, and accessible.</h2>
+            </div>
+    
+            <div class="register-h">
+                <h3>Register Here</h3>
+            </div>
+
+            <input type="email" class="email-input" placeholder="Enter your email">
+    
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#volunteer">Volunteer</a></li>
+                    <li><a href="#company">Company</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#legal">Legal</a></li>
+                </ul>
+            </div>
+    
+            <div class="social-icons">
+                <!-- ... Social icons content ... -->
+                <div class="social-icons">
+                    <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer">
+                        <img width="50" height="50" src="https://img.icons8.com/ios/50/twitter.png" alt="linkedin"/>
+                    </a>
+                    <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer">
+                        <img width="50" height="50" src="https://img.icons8.com/ios/50/linkedin.png" alt="linkedin"/>
+                    </a>
+                    <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer">
+                        <img width="50" height="50" src="https://img.icons8.com/ios/50/github.png" alt="linkedin"/>
+                    </a>
+                    <a href="#" class="social-icon" target="_blank" rel="noopener noreferrer">
+                        <img width="50" height="50" src="https://img.icons8.com/ios/50/medium-monogram.png" alt="linkedin"/>
+                    </a>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 iko ibibio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', path='/js/script.js') }}"></script>
+    <script src="{{ url_for('static', path='/js/search.js') }}"></script>
+    <script src="{{ url_for('static', path='/js/nav.js') }}"></script>
+    <script src="{{ url_for('static', path='/js/edit.js') }}"></script>
+
+
+
+
+</html>
+
+
+

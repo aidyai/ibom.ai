@@ -1,0 +1,212 @@
+/* Dropdown styles */
+
+.dropdown {
+    max-width: 13em;
+    margin: 19px auto 0;
+    position: relative;
+    width: 100%;
+}
+  
+  .dropdown-btn {
+    background: #000000;
+    font-size: 19px;
+    width: 100%;
+    border: none;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.595em 1.5em;
+    border-radius: 0.3em;
+    cursor: pointer;
+}
+  
+  .arrow {
+      border-left: 6px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 11px solid #fff;
+      transition: transform ease-in-out 0.3s;
+  }
+  
+  .dropdown-content {
+    list-style: none;
+    position: absolute;
+    top: 3.2em;
+    width: 100%;
+    visibility: hidden;
+  /*   overflow: hidden; */
+    transform: translateY(-1em);
+    transition: transform ease 0.3s;
+  }
+  
+  input[type="checkbox"]:checked ~ .dropdown-content {
+    visibility: visible;
+    transform: translateY(0);
+  }
+  
+  .dropdown-content li {
+    background: #000000;
+    border-radius: 0.5em;
+  }
+  
+  input[type="checkbox"]:checked + label > .arrow {
+    transform: rotate(180deg);
+  }
+  
+  input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+  }
+  
+  input[type="checkbox"]:focus + label {
+    box-shadow: 0 0 20px rgb(83, 83, 83);
+  }
+  
+  .dropdown-content li:hover {
+    background: #1d1f24;
+  }
+  
+  .dropdown-content li a {
+    display: block;
+    padding: 0.7em 0.5em;
+    color: #fff;
+    margin: 0.1em 0;
+    text-decoration: none;
+  }
+  
+  /* base styles */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: "Segoe UI", sans-serif;
+    color: #333;
+  /*   background: #cecece; */
+  }
+
+
+.submenu {
+  margin-top: -14px;
+  margin-left: 8px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+}
+
+.submenu p {
+  color: white;
+  font-size: 0.7em;
+
+}
+
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 0vh;
+  justify-content: flex-start;
+  height: 400px;
+}
+
+#card {
+  display: none; /* Initially hide the card */
+}
+
+
+.carded-container {
+  max-width: 90%; /* Adjust the maximum width as needed */
+  margin: 50px auto; /* Increase the top margin to move it down */
+  text-align: center;
+  padding: 45px;
+  border: 1px solid #dfd9d9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #000000;
+  background-color: #ffffff; /* Set the background color to pure white */
+}
+
+
+#counter {
+  display: block;
+  margin: 0px auto;
+  font-size: 1.79em;
+  font-weight: bold;
+  color: #333;
+}
+
+.record-text {
+  font-weight: bold;
+  margin-top: -33px;
+  font-size: large;
+}
+
+
+#canvas {
+  border: 2px solid #000;
+  border-radius: 8px; /* Adjust the border-radius as needed */
+  margin-bottom: 11px;
+  width: 100%;
+}
+
+.cards {
+  display: none;
+  background-color: #f0f0f0;
+  padding: 20px; /* Increase padding for a larger card */
+  border-radius: 8px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.centered-image {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+}
+
+
+.im-ah {
+  margin-bottom: 20px; /* Adjust as needed */
+}
+
+.im-ah-image {
+  max-width: 40%;
+  max-height: 118px;
+  display: block;
+  margin: auto;
+}
+
+#audioElement {
+  display: block;
+  margin: 0 auto;
+  width: 80%; /* Adjust the width as needed */
+  max-width: 400px; /* Set a maximum width if desired */
+  margin-top: 20px; /* Adjust the top margin as needed */
+}
+
+
+
+
+
+
+@media (min-width: 768px) {
+  /* Adjustments for larger screens (tablets and desktops) */
+  .carded-container {
+    max-width: 80%; /* Adjust the maximum width for larger screens */
+    padding: 60px; /* Increase padding for larger screens */
+  }
+}
+
+@media (min-width: 992px) {
+  /* Adjustments for even larger screens (desktops) */
+  .carded-container {
+    max-width: 70%; /* Adjust the maximum width for desktop screens */
+    padding: 75px; /* Increase padding for desktop screens */
+  }
+}
+

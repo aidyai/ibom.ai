@@ -1,0 +1,45 @@
+
+.contain {
+    display: flex;
+    flex-direction: column;
+    min-height: 0vh;
+    justify-content: flex-start;
+    height: 339px;
+}
+
+.text {
+    padding: 20px;
+    margin: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    min-height: 519px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+
+.title {
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+.description {
+    line-height: 1.6;
+}
+
+.show-more {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 16px 33px;
+    border: none;
+    cursor: pointer;
+    margin-top: 42px;
+}
+
+.show-more:hover {
+    background-color: #0056b3;
+}
