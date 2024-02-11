@@ -2,3 +2,4 @@ scipy
 sentencepiece
 torch
 transformers
+uvicorn
