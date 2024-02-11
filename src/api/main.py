@@ -1,58 +1,40 @@
+
 import io
-import sys
+from io import BytesIO
+import numpy as np
+import torch
 import pathlib
-from pathlib import Path
 
-
-from fastapi import FastAPI, Header
-from modal import Image, Function, Mount, Stub, asgi_app, web_endpoint
-from fastapi import FastAPI, UploadFile, File
-from fastapi.responses import JSONResponse, StreamingResponse # Import JSONResponse from fastapi.responses
+from fastapi import FastAPI
 from pydantic import BaseModel
+from fastapi.responses import StreamingResponse 
 
-
-import modal
-from modal import Volume
-
-
-
-volume = Volume.persisted("ckpt-store")
-model_store_path = "/vol/ckpt"
-
+from transformers import SpeechT5Processor, SpeechT5ForTextToSpeech, SpeechT5HifiGan
+from scipy.io.wavfile import write
 
 
 BASE_DIR = pathlib.Path(__file__).parent
-JSON_FILENAME = 'objects/dict5k_.json'
+
+
+# Beam Volume to store cached models
 EMBEDDING_NAME = 'objects/embedding.npy'
 rate = 16000
 
 
-JSON_FILE_PATH = BASE_DIR / JSON_FILENAME
 EMBEDDING = BASE_DIR / EMBEDDING_NAME
 
 
+app = FastAPI()
 
 
-stub = modal.Stub("api")
-image_api = (
-    modal.Image.debian_slim()
-    .apt_install(
-        "libglib2.0-0", "libsm6", "libxrender1", "libxext6", "ffmpeg", "libgl1"
-    )
-    .pip_install("scipy","sentencepiece","torch","transformers")
-)
-
-@stub.function(image=image_api,volumes={model_store_path: volume})
-def upload():
-         
-    from transformers import SpeechT5Processor, SpeechT5ForTextToSpeech, SpeechT5HifiGan
+def load_mdl():
     
     processor = SpeechT5Processor.from_pretrained("microsoft/speecht5_tts")
     model = SpeechT5ForTextToSpeech.from_pretrained("microsoft/speecht5_tts")
     vocoder = SpeechT5HifiGan.from_pretrained("microsoft/speecht5_hifigan")
 
-
     return processor, model, vocoder
+
 
 
 class TextRequest(BaseModel):
@@ -60,21 +42,13 @@ class TextRequest(BaseModel):
 
 
 
-#@stub.function()
-@stub.function(image=image_api)
-@web_endpoint(method="POST")
-async def api_tts(text_request: TextRequest):
+
+@app.post('/generate')
+def api_tts(text_request: TextRequest):
 
 
-    import io
-    from io import BytesIO
-    import torch
-    import numpy as np
-    from scipy.io.wavfile import write
-    
-
-
-    processor, model, vocoder = upload.remote()
+    processor, model, vocoder  = load_mdl
+        
     text = text_request.text
 
     inputs = processor(text=text, return_tensors="pt")
@@ -104,3 +78,5 @@ async def api_tts(text_request: TextRequest):
 
     # Return a StreamingResponse with the BytesIO content
     return StreamingResponse(io.BytesIO(wav_bytesio.getvalue()), headers=headers)
+
+
