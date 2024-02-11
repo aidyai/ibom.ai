@@ -1,5 +1,7 @@
 import io
 import sys
+import pathlib
+from pathlib import Path
 
 
 import modal
@@ -12,8 +14,25 @@ from pydantic import BaseModel
 
 
 
+BASE_DIR = pathlib.Path(__file__).parent
 
-stub = modal.Stub("py")
+
+
+
+
+# Assuming that the JSON file is in the same directory as this script
+JSON_FILENAME = 'objects/dict5k_.json'
+EMBEDDING_NAME = 'objects/embedding.npy'
+rate = 16000
+
+
+JSON_FILE_PATH = BASE_DIR / JSON_FILENAME
+EMBEDDING = BASE_DIR / EMBEDDING_NAME
+
+
+
+
+stub = modal.Stub("tts")
 tts_api_image = (
     modal.Image.debian_slim()
     .apt_install(
@@ -51,15 +70,15 @@ async def tts_api(text_request: TextRequest):
     import torch
     import numpy as np
     from scipy.io.wavfile import write
-
-
-    from src.utils.base import EMBEDDING, rate
-
+    
 
 
 
 
-    processor, model, vocoder = load_model()
+
+
+
+    processor, model, vocoder = load_model.remote()
     text = text_request.text
 
     inputs = processor(text=text, return_tensors="pt")
