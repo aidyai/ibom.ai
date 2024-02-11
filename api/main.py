@@ -1,4 +1,4 @@
-
+import uvicorn
 import io
 from io import BytesIO
 import numpy as np
@@ -27,16 +27,7 @@ EMBEDDING = BASE_DIR / EMBEDDING_NAME
 app = FastAPI()
 
 
-def load_mdl():
     
-    processor = SpeechT5Processor.from_pretrained("microsoft/speecht5_tts")
-    model = SpeechT5ForTextToSpeech.from_pretrained("microsoft/speecht5_tts")
-    vocoder = SpeechT5HifiGan.from_pretrained("microsoft/speecht5_hifigan")
-
-    return processor, model, vocoder
-
-
-
 class TextRequest(BaseModel):
     text: str
 
@@ -47,7 +38,11 @@ class TextRequest(BaseModel):
 def api_tts(text_request: TextRequest):
 
 
-    processor, model, vocoder  = load_mdl
+    processor = SpeechT5Processor.from_pretrained("microsoft/speecht5_tts")
+    model = SpeechT5ForTextToSpeech.from_pretrained("microsoft/speecht5_tts")
+    vocoder = SpeechT5HifiGan.from_pretrained("microsoft/speecht5_hifigan")
+
+
         
     text = text_request.text
 
@@ -80,3 +75,12 @@ def api_tts(text_request: TextRequest):
     return StreamingResponse(io.BytesIO(wav_bytesio.getvalue()), headers=headers)
 
 
+
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", port=8000, reload=True)
+
+
+#if __name__ == "__main__":
+#    uvicorn.run("src.main:app", host="0.0.0.0", port=10000, reload=True)
