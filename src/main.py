@@ -22,8 +22,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-import ray
-from ray import serve
+
 
 from src.utils.search import load_json_file, search_
 from src.utils.base import JSON_FILE_PATH

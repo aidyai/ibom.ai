@@ -4,7 +4,6 @@ import pathlib
 from pathlib import Path
 
 
-import modal
 from fastapi import FastAPI, Header
 from modal import Image, Function, Mount, Stub, asgi_app, web_endpoint
 from fastapi import FastAPI, UploadFile, File
@@ -12,15 +11,17 @@ from fastapi.responses import JSONResponse, StreamingResponse # Import JSONRespo
 from pydantic import BaseModel
 
 
+import modal
+from modal import Volume
+
+
+
+volume = Volume.persisted("ckpt-store")
+model_store_path = "/vol/ckpt"
+
 
 
 BASE_DIR = pathlib.Path(__file__).parent
-
-
-
-
-
-# Assuming that the JSON file is in the same directory as this script
 JSON_FILENAME = 'objects/dict5k_.json'
 EMBEDDING_NAME = 'objects/embedding.npy'
 rate = 16000
@@ -32,7 +33,7 @@ EMBEDDING = BASE_DIR / EMBEDDING_NAME
 
 
 
-stub = modal.Stub("tts")
+stub = modal.Stub("tts-")
 tts_api_image = (
     modal.Image.debian_slim()
     .apt_install(
@@ -41,15 +42,15 @@ tts_api_image = (
     .pip_install("scipy","sentencepiece","torch","transformers")
 )
 
-volume = modal.NetworkFileSystem.new()
-@stub.function(image=tts_api_image, network_file_systems={"/root/cache": volume})
+@stub.function(image=tts_api_image,volumes={model_store_path: volume})
 def load_model():
-
-
+         
     from transformers import SpeechT5Processor, SpeechT5ForTextToSpeech, SpeechT5HifiGan
+    
     processor = SpeechT5Processor.from_pretrained("microsoft/speecht5_tts")
     model = SpeechT5ForTextToSpeech.from_pretrained("microsoft/speecht5_tts")
     vocoder = SpeechT5HifiGan.from_pretrained("microsoft/speecht5_hifigan")
+
 
     return processor, model, vocoder
 
@@ -108,4 +109,3 @@ async def tts_api(text_request: TextRequest):
 
     # Return a StreamingResponse with the BytesIO content
     return StreamingResponse(io.BytesIO(wav_bytesio.getvalue()), headers=headers)
-
