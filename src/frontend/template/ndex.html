@@ -122,7 +122,14 @@
         <img id="speakerIcon" class="static" src="{{ url_for('static', path='img/play.png')}}" alt="microphone">
 
         
-        
+        <input type="text" id="textInput" placeholder="Enter text...">
+        <button id="micButton">🎤</button>
+    
+        <!-- Add an audio element for playback -->
+        <audio id="audioPlayer" controls>
+            Your browser does not support the audio element.
+        </audio>
+    
 
 
         <div class="body-container">
@@ -272,6 +279,8 @@
         <script src="{{ url_for('static', path='/js/edit.js') }}"></script>
         <script src="{{ url_for('static', path='/js/speaker.js') }}"></script>
         <script src="{{ url_for('static', path='/js/newform.js') }}"></script>
+       <!-- <script src="{{ url_for('static', path='/js/speaker.js') }}"></script>
+-->
 
 
 </body>
