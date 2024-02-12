@@ -8,3 +8,4 @@ scipy
 sentencepiece
 torch
 transformers
+soundfile
