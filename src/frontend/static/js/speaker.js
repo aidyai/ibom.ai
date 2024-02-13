@@ -16,24 +16,14 @@ document.getElementById('speakerIcon').addEventListener('click', function() {
             },
             body: JSON.stringify({ text: textInput }),
         })
-        .then(response => response.json())
-        .then(data => {
+        .then(response => response.blob())
+        .then(blob => {
             // Remove the loading class and change the icon to the speaker
             document.getElementById('speakerIcon').classList.remove('loading');
             document.getElementById('speakerIcon').src = 'frontend/static/img/play.gif';
 
-            // Decode base64 and create an audio element dynamically
-            var audioData = atob(data.audio_base64);
-            var audioArrayBuffer = new ArrayBuffer(audioData.length);
-            var audioView = new DataView(audioArrayBuffer);
-
-            for (var i = 0; i < audioData.length; i++) {
-                audioView.setUint8(i, audioData.charCodeAt(i));
-            }
-
-            var audioBlob = new Blob([audioArrayBuffer], { type: 'audio/wav' });
-            var audioUrl = URL.createObjectURL(audioBlob);
-
+            // Create an audio element dynamically
+            var audioUrl = URL.createObjectURL(blob);
             var audioPlayer = new Audio(audioUrl);
 
             // Play the audio
