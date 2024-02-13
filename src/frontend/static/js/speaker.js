@@ -8,8 +8,8 @@ document.getElementById('speakerIcon').addEventListener('click', function() {
         document.getElementById('speakerIcon').src = 'frontend/static/img/sp3inner.gif';
         document.getElementById('speakerIcon').classList.add('loading');
 
-        // Send the text to the backend endpoint
-        fetch('/generate', {
+        // Send the text to your API endpoint
+        fetch('https://aidyai--api-tts-api.modal.run/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -53,7 +53,3 @@ document.getElementById('speakerIcon').addEventListener('click', function() {
         });
     }
 });
-
-
-
-
