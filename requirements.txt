@@ -3,9 +3,4 @@ uvicorn
 jinja2
 python-multipart
 requests
-numpy
-scipy
-sentencepiece
-torch
-transformers
-soundfile
+
