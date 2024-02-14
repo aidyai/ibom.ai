@@ -147,3 +147,29 @@ function updateCounter() {
     }
 }
 
+
+
+
+
+// Get the text area
+var textArea = document.getElementById("text_area");
+
+// Function to insert a character into the text area
+function insertCharacter(character) {
+    // Insert the character at the cursor position
+    var cursorPosition = textArea.innerText.length;
+    var textBeforeCursor = textArea.innerText.substring(0, cursorPosition);
+    var textAfterCursor = textArea.innerText.substring(cursorPosition);
+    textArea.innerText = textBeforeCursor + character + textAfterCursor;
+}
+
+// Function to handle keyboard input
+document.addEventListener("keydown", function(event) {
+    // Check if the pressed key is a letter
+    if (event.key.match(/[a-z]/i)) {
+        // Prevent default behavior to avoid typing the letter in the input field
+        event.preventDefault();
+        // Insert the letter into the text area
+        insertCharacter(event.key);
+    }
+});

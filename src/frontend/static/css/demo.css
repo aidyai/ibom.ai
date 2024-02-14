@@ -16,13 +16,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .card2d {
     background-color: #000000;
-    border-radius: 8px;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 600px;
+    border-radius: 5px;
+    padding: 13px;
+    margin: 20px auto; /* Adjust as needed */
+    max-width: 637px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     position: relative;
+    margin-bottom: 60px; /* Adjust this value to push the card down */
 }
+
 
 #randomTextContainer {
     border: 3.75px solid #f9f9f9;
@@ -132,5 +134,124 @@ button#submit-button {
     button {
  
         padding: 12px 10px;
+    }
+}
+
+
+
+.ftglNV {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 13px 30px 0.25rem;
+    margin-top: -1rem;
+    margin-inline: -0.5rem;
+}
+
+.ftglNV > * {
+    margin-top: 1rem;
+    margin-inline: 0.5rem;
+}
+
+.jDkkcD {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.jDkkcD {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    
+}
+
+
+.kngrRb {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0.25rem;
+    width: 3rem;
+    height: 3rem;
+    color: rgb(41, 55, 73);
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: 2px solid rgb(188, 194, 207);
+    box-shadow: rgb(188, 194, 207) 0px 4px 0px;
+    border-radius: 1rem;
+}
+
+button {
+    font-family: inherit;
+    color: rgb(0, 17, 34);
+}
+
+@media (max-width: 50rem)
+.jDkkcD {
+    flex-flow: column-reverse wrap;
+}
+
+.keyboard-container {
+    position: relative;
+}
+
+.keyboard-icon {
+    font-size: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.keyboard-layout {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+}
+
+.keyboard-layout.hidden {
+    display: none;
+}
+
+
+
+
+.img-ah {
+    width: 100%;
+    position: relative;
+    margin-top: 532px;
+    margin-bottom: 0px;
+}
+
+.footer {
+    background-color: #ded9bc;
+    color: #000;
+    padding: 3px 0;
+    padding-bottom: 65px;
+    margin-top: 0px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .sc-1v1crxt-1.jDkkcD,
+    .sc-1v1crxt-2.ftglNV {
+        /* Adjust the size as needed */
+        padding: 10px;
+    }
+
+    .kngrRb {
+        /* Adjust the size as needed */
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
     }
 }

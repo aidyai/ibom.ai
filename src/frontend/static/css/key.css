@@ -1,0 +1,51 @@
+
+.ftglNV {
+display: flex;
+flex-wrap: wrap;
+align-items: flex-start;
+padding: 0px 0px 0.25rem;
+margin-top: -1rem;
+margin-inline: -0.5rem;
+}
+
+.ftglNV > * {
+margin-top: 1rem;
+margin-inline: 0.5rem;
+}
+
+.jDkkcD {
+display: flex;
+width: 100%;
+justify-content: center;
+align-items: flex-start;
+}
+
+.jDkkcD {
+display: flex;
+width: 100%;
+justify-content: center;
+
+}
+
+
+.kngrRb {
+display: flex;
+justify-content: center;
+align-items: center;
+padding-bottom: 0.25rem;
+width: 3rem;
+height: 3rem;
+color: rgb(41, 55, 73);
+background: transparent;
+cursor: pointer;
+font-size: 1.5rem;
+border: 2px solid rgb(188, 194, 207);
+box-shadow: rgb(188, 194, 207) 0px 4px 0px;
+border-radius: 1rem;
+}
+
+button {
+font-family: inherit;
+color: rgb(0, 17, 34);
+}
+

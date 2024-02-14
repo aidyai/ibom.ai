@@ -210,3 +210,52 @@ button {
   }
 }
 
+
+
+
+.card {
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 100%;
+}
+
+.alphabet-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+  align-content: stretch;
+}
+
+.alphabet-square {
+  min-width: 44px;
+  border-radius: -4px;
+  border: 2px solid #e5e5e5;
+  border-bottom: 6px solid #e5e5e5;
+  margin: 5px;
+  transition: all 0.1s;
+  display: inline-flex;
+  padding: 8px 13px;
+  font-size: 16px;
+  font-family: 'din-round-bold', Arial, sans-serif;
+  cursor: pointer;
+  text-align: center;
+}
+
+.alphabet-square:hover {
+  background-color: #ddf4ff;
+  border-color: #1cb0f6;
+}
+
+.alphabet-square:active {
+  border-bottom: 2px solid #1cb0f6;
+}
+
+@media only screen and (max-width: 600px) {
+  .alphabet-square {
+      width: 27px;
+      height: 42px;
+      line-height: 30px;
+      font-size: 14px;
+  }
+}
