@@ -55,9 +55,9 @@ async def search(request:Request, query: str = Query(..., title="Search Query", 
 
     return templates.TemplateResponse("ndex.html", {"request": request, "results": results})
 
-@app.get("/db/")
-async def ibom_api_page(request:Request):
-    return templates.TemplateResponse("pre.html", {"request":request})
+#@app.get("/db/")
+#async def ibom_api_page(request:Request):
+#    return templates.TemplateResponse("pre.html", {"request":request})
 
 @app.get("/db/speak")
 async def ibom_api_page(request:Request):
