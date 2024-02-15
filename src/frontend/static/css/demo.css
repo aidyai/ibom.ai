@@ -67,7 +67,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #909685;
 }
 
 p#randomText {
@@ -172,17 +172,20 @@ button#submit-button {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 0.25rem;
+    padding-bottom: -6.75rem;
     width: 3rem;
     height: 3rem;
     color: rgb(41, 55, 73);
-    background: transparent;
+    background: #77746c;
     cursor: pointer;
     font-size: 1.5rem;
     border: 2px solid rgb(188, 194, 207);
     box-shadow: rgb(188, 194, 207) 0px 4px 0px;
     border-radius: 1rem;
+    text-align: center;
 }
+
+
 
 button {
     font-family: inherit;
@@ -254,4 +257,31 @@ button {
         height: 2.5rem;
         font-size: 1.2rem;
     }
+}
+
+
+.ftglNV {
+    display: flex;
+    align-items: flex-start;
+    padding: -8px -28px -44.75rem; /* This seems to be an incorrect value, please adjust as needed */
+    margin-top: -1rem;
+    margin-inline: 0.5rem;
+    flex-direction: row;
+    align-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Apply styles for mobile screens */
+@media screen and (max-width: 768px) {
+    .ftglNV {
+        padding: 13px 30px 0.25rem;
+        margin-top: -1rem;
+        margin-inline: -0.5rem;
+    }
+}
+
+/* Make the keyboard buttons white */
+.kngrRb {
+    color: #fff;
 }
