@@ -147,10 +147,7 @@ button#submit-button {
 
 @media screen and (max-width: 768px) {
     /* Adjust styles for screens smaller than 768px */
-    .card2d {
-        max-width: 100%;
-        margin: 20px auto;
-    }
+
 
     #randomTextContainer {
         padding: 15px;
@@ -315,3 +312,17 @@ button {
     color: #fff;
 }
 
+
+
+@media screen and (max-width: 367px) and (min-height: 950px) {
+    .card2d {
+        background-color: #000000 !important;
+        border-radius: 5px !important;
+        padding: 9px !important;
+        margin: 20px auto !important;
+        max-width: 637px !important;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+        position: relative !important;
+        margin-bottom: 60px !important;
+    }
+}
