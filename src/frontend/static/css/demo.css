@@ -26,6 +26,16 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 
+#user-input {
+    font-size: 16px; /* Adjust the font size as needed */
+}
+
+input[type="text"] {
+    font-family: "Roboto Mono", monospace;
+    font-size: 16px; /* Set your desired font size here */
+    /* Other existing styles */
+}
+
 #randomTextContainer {
     border: 3.75px solid #f9f9f9;
     padding: 26px;
@@ -64,10 +74,29 @@ button {
     border-radius: 4px;
     cursor: pointer;
     margin-block: 12px;
+    /* Set button width to 20% for 5 buttons per row */
+    width: 20%;
+    box-sizing: border-box; /* Include padding and border in width */
+    /* Remove focus outline */
+    outline: none;
 }
 
 button:hover {
     background-color: #909685;
+}
+
+/* Add active (pressed) styles */
+button:active {
+    /* Change background color or add box-shadow for the pressed effect */
+    background-color: #777;
+    /* Optionally, you can add a box-shadow to simulate a pressed effect */
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Add a transition for smoother hover and active effects */
+button:hover,
+button:active {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 p#randomText {
@@ -285,3 +314,4 @@ button {
 .kngrRb {
     color: #fff;
 }
+
