@@ -55,17 +55,19 @@ async def search(request:Request, query: str = Query(..., title="Search Query", 
 
     return templates.TemplateResponse("ndex.html", {"request": request, "results": results})
 
-@app.get("/ibom-api/")
+@app.get("/db/")
 async def ibom_api_page(request:Request):
     return templates.TemplateResponse("pre.html", {"request":request})
 
-@app.get("/ibom-api/speak")
+@app.get("/db/speak")
 async def ibom_api_page(request:Request):
     return templates.TemplateResponse("co.html", {"request":request})
 
-@app.get("/ibom-api/write")
+@app.get("/db/write")
 async def ibom_api_page(request:Request):
     return templates.TemplateResponse("api.html", {"request":request})
 
-
+@app.get("/db")
+async def ibom_api_page(request:Request):
+    return templates.TemplateResponse("dashboard.html", {"request":request})
 
