@@ -16,70 +16,69 @@
         rel="stylesheet">
     <meta name="title" content="">
     <meta name="description" content="">
+    <link href="{{ url_for('static', path='/css/nav.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/css/footer.css') }}" rel="stylesheet">
 
-    <!----link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet">
+
+
+    <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/search.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/voice.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/button.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/popup.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/exsent.css') }}" rel="stylesheet">
--->
+
 
 
     <title>---</title>
 </head>
 
 
+<header id="nav-menu" aria-label="navigation bar">
+    <div class="container">
+      <div class="nav-start">
+        <a class="logo" href="/">
+            <img src="{{ url_for('static', path='/img/afri.png') }}" width="55" height="55" alt="img" />
+        </a>
+        <nav class="menu">
+          <ul class="menu-bar">
 
-<body>
-    
-</body>
-    
+            <li><a class="nav-link" href="/">Jobs</a></li>
+            <li><a class="nav-link" href="/">Livestream</a></li>
+            <li><a class="nav-link" href="/">About</a></li>
+            <li><a class="nav-link" href="/">About</a></li>
+            <li><a class="nav-link" href="/">About</a></li>
+            <li><a class="nav-link" href="/">About</a></li>
 
+          </ul>
+        </nav>
+      </div>
+  
+      <div class="nav-end">
+        <div class="right-container">
 
+          <a href="#profile">
+            <img src="https://github.com/Evavic44/responsive-navbar-with-dropdown/blob/main/assets/images/user.jpg?raw=true" width="30" height="30" alt="user image" />
+          </a>
+          <button>Log In</button>
+          <button class="btn btn-primary">Sign Up</button>
 
-      
-
-
-    <nav class="header">
-        <div class="header-container">
-            <div class="nav-header">
-                <a href="/" class="logo">
-                    <img class="logo-img" src="{{ url_for('static', path='/img/ikọ.png') }}" alt="img" />
-                </a>
-            </div>
-            <div class="nav-toggle" onclick="toggleNav()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <div class="nav-list" id="navList">
-                <span class="close-btn" onclick="toggleNav()">✖</span>
-                <ul>
-                    <li><a href="/chat">Ibomlearn</a></li>
-                    <li><a href="/db">Ibomdb</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-
-                <ul>
-                    <li>
-                        <div class="recx-button">
-                            <a href="/register">Login</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="rec-button">
-                            <a href="/register">Register</a>
-                        </div>
-                    </li>
-                </ul>
-
-            </div>
         </div>
-    </nav>
-    
-
-    <img src="{{ url_for('static', path='img/bggysz.png')}}" alt="Background Image" class="background-image">
+  
+        <button id="hamburger" aria-label="hamburger" aria-haspopup="true" aria-expanded="false">
+          <i class="bx bx-menu" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Page markup: Not important -->
+  <main style="padding: 1.5rem; margin: 0 auto; max-width: 1300px">
+    <h1>Navigation Bar</h1>
+    <p>
+      Want to learn how to make this?
+      <a style="text-decoration: underline; color: var(--primary-color)" href="https://www.freecodecamp.org/news/how-to-build-a-responsive-navigation-bar-with-dropdown-menu-using-javascript/" target="_blank">Read the tutorial</a>
+    </p>
 
     <div id="content">
         {% block content %}
@@ -298,16 +297,32 @@
         </footer>
 
 
-<!--        <script src="{{ url_for('static', path='/js/script.js') }}"></script>
+        <!-- <script src="{{ url_for('static', path='/js/script.js') }}"></script>
         <script src="{{ url_for('static', path='/js/search.js') }}"></script>-->
         <script src="{{ url_for('static', path='/js/nav.js') }}"></script>
         <script src="{{ url_for('static', path='/js/edit.js') }}"></script>
         <script src="{{ url_for('static', path='/js/speaker.js') }}"></script>
         <script src="{{ url_for('static', path='/js/newform.js') }}"></script>
        <!-- <script src="{{ url_for('static', path='/js/speaker.js') }}"></script>
--->
+        -->
+
+
+
+
+
+
+  </main>
+
+
+
+
 
 
 </body>
-
 </html>
+
+
+<body>
+    <script src="{{ url_for('static', path='/js/nav.js') }}"></script>
+</body>
+
