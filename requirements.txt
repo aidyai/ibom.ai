@@ -5,3 +5,4 @@ python-multipart
 requests
 firebase_admin
 pyrebase4
+python-dotenv

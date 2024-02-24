@@ -43,6 +43,21 @@ button {
   color: inherit;
 }
 
+
+.logo {
+  display: inline-block; /* Ensures the anchor behaves like a block */
+  text-decoration: none; /* Removes default underline */
+}
+
+..logo img {
+  width: 43px;
+  height: 53px;
+  margin-top: 10px;
+}
+
+
+
+
 .btn {
   display: block;
   background-color: var(--primary-color);

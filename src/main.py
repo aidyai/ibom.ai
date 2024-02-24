@@ -3,6 +3,8 @@ import pathlib
 from pathlib import Path
 import uvicorn
 import json
+from dotenv import load_dotenv
+import os
 import asyncio
 
 from typing import Optional
@@ -17,38 +19,36 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 from fastapi.exceptions import HTTPException
 
-from src.utils.search import load_json_file, search_
-from src.utils.base import JSON_FILE_PATH
+from .utils.search import load_json_file, search_
+from .utils.base import JSON_FILE_PATH, firebaseConfig, CREDENTIALS
+
 
 import pyrebase
 import firebase_admin
 from firebase_admin import credentials, auth
-from src.models import LoginSchema,SignUpSchema
+from .models import LoginSchema,SignUpSchema
+
+
+
 
 
 BASE_DIR = pathlib.Path(__file__).parent
 
 
-
+load_dotenv()
 app = FastAPI()
 app.mount("/frontend/static", StaticFiles(directory= BASE_DIR/"frontend/static"), name="static")
 templates = Jinja2Templates(directory=str(BASE_DIR/"frontend/template"))
 
-
 if not firebase_admin._apps:
-    cred = credentials.Certificate(BASE_DIR/"utils/objects/auth.json")
+    cred = credentials.Certificate(CREDENTIALS)
     firebase_admin.initialize_app(cred)
 
-firebaseConfig = {
-    'apiKey': "AIzaSyDDrcc-5iMw5u1rVer4y3wIhHhqOkyFOIU",
-    'authDomain': "ibibio-db.firebaseapp.com",
-    'projectId': "ibibio-db",
-    'databaseURL':"https://ibibio-db-default-rtdb.firebaseio.com/",
-    'storageBucket': "ibibio-db.appspot.com",
-    'messagingSenderId': "854187803706",
-    'appId': "1:854187803706:web:63ee40566554cfb6602103",
-    'measurementId': "G-305Q27WRXS"
-}
+
+
+#print(firebase_credentials)
+
+
 
 
 
@@ -76,7 +76,7 @@ async def search(request:Request, query: str = Query(..., title="Search Query", 
     #json_file_path = BASE_DIR/'dict5k_.json'  # Replace with the actual path to your JSON file
 
     results = search_(query, JSON_FILE_PATH)
-    return templates.TemplateResponse("ndex.html", {"request": request, "results": results})
+    return templates.TemplateResponse("nav.html", {"request": request, "results": results})
     
 
 @app.get("/db/speak")
