@@ -74,17 +74,7 @@
     text-decoration: none;
   }
   
-  /* base styles */
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  body {
-    font-family: "Segoe UI", sans-serif;
-    color: #333;
-  /*   background: #cecece; */
-  }
+
 
 
 .submenu {
@@ -102,7 +92,7 @@
 
 
 
-.container {
+.ctainer {
   display: flex;
   flex-direction: column;
   min-height: 0vh;
@@ -115,7 +105,7 @@
 }
 
 
-.carded-container {
+.carded-ctainer {
   max-width: 90%; /* Adjust the maximum width as needed */
   margin: 50px auto; /* Increase the top margin to move it down */
   text-align: center;
@@ -157,7 +147,7 @@
   border-radius: 8px;
 }
 
-button {
+buttton {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
@@ -196,7 +186,7 @@ button {
 
 @media (min-width: 768px) {
   /* Adjustments for larger screens (tablets and desktops) */
-  .carded-container {
+  .carded-ctainer {
     max-width: 80%; /* Adjust the maximum width for larger screens */
     padding: 60px; /* Increase padding for larger screens */
   }
@@ -204,7 +194,7 @@ button {
 
 @media (min-width: 992px) {
   /* Adjustments for even larger screens (desktops) */
-  .carded-container {
+  .carded-ctainer {
     max-width: 70%; /* Adjust the maximum width for desktop screens */
     padding: 75px; /* Increase padding for desktop screens */
   }

@@ -17,16 +17,16 @@
     <meta name="title" content="">
     <meta name="description" content="">
     <link href="{{ url_for('static', path='/css/nav.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', path='/css/footer.css') }}" rel="stylesheet">
 
 
 
     <link href="{{ url_for('static', path='/css/style.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/search.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/voice.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', path='/css/button.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/popup.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/exsent.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/css/sign.css') }}" rel="stylesheet">
+
 
 
 
@@ -38,47 +38,116 @@
     <div class="container">
       <div class="nav-start">
         <a class="logo" href="/">
-            <img src="{{ url_for('static', path='/img/iko.png') }}" width="55" height="55" alt="img" />
+            <img src="{{ url_for('static', path='/img/afri.png') }}" width="55" height="55" alt="img" />
         </a>
         <nav class="menu">
           <ul class="menu-bar">
 
-            <li><a class="nav-link" href="/">Jobs</a></li>
-            <li><a class="nav-link" href="/">Livestream</a></li>
-            <li><a class="nav-link" href="/">About</a></li>
-            <li><a class="nav-link" href="/">About</a></li>
-            <li><a class="nav-link" href="/">About</a></li>
-            <li><a class="nav-link" href="/">About</a></li>
-
+            <li><a class="nav-link" href="/game">Learn</a></li>
+            <li><a class="nav-link" href="/dictionary">Dictionary</a></li>
+            <li><a class="nav-link" href="/db">Data Platform</a></li>
+            <li><a class="nav-link" href="/about">About</a></li>
           </ul>
         </nav>
       </div>
   
       <div class="nav-end">
         <div class="right-container">
-
           <a href="#profile">
             <img src="https://github.com/Evavic44/responsive-navbar-with-dropdown/blob/main/assets/images/user.jpg?raw=true" width="30" height="30" alt="user image" />
           </a>
-          <button>Log In</button>
-          <button class="btn btn-primary">Sign Up</button>
-
-        </div>
-  
+          <button id="loginBtn">Log In</button>
+          <button id="signupBtn" class="btn btn-primary">Sign Up</button>
+          
+          <!-- Hidden modal container -->
+          <div id="modalContainer" class="modal-container">
+            <div class="modal-content">
+              <!-- Your sign-in/sign-up form -->
+              <form id="signUpForm" class="form" style="display: none;">
+                <div class="name-input">
+                  <div class="flex-column">
+                    <label>Name </label>
+                  </div>
+                  <div class="inputForm">
+                    <input type="text" class="input" placeholder="Enter your Name">
+                  </div>
+                </div>
+                <div class="flex-column">
+                  <label>Email </label>
+                </div>
+                <div class="inputForm">
+                  <svg height="20" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <g id="Layer_3" data-name="Layer 3">
+                      <path d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z"></path>
+                    </g>
+                  </svg>
+                  <input type="text" class="input" placeholder="Enter your Email">
+                </div>
+                <div class="flex-column">
+                  <label>Password </label>
+                </div>
+                <div class="inputForm">
+                  <svg height="20" viewBox="-64 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"></path>
+                    <path d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"></path>
+                  </svg>
+                  <input type="password" class="input" placeholder="Enter your Password">
+                </div>
+                <div class="flex-row">
+                  <div>
+                    <input type="checkbox">
+                    <label>Remember me </label>
+                  </div>
+                </div>
+                <button class="bttn-submit">Sign Up</button>
+                <p class="p">Already have an Account? <button id="showLoginBtn">Login</button></p>
+              </form>
+          
+              <form id="loginForm" class="form">
+                <div class="flex-column">
+                  <label>Email </label>
+                </div>
+                <div class="inputForm">
+                  <svg height="20" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <g id="Layer_3" data-name="Layer 3">
+                      <path d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z"></path>
+                    </g>
+                  </svg>
+                  <input type="text" class="input" placeholder="Enter your Email">
+                </div>
+                <div class="flex-column">
+                  <label>Password </label>
+                </div>
+                <div class="inputForm">
+                  <svg height="20" viewBox="-64 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0"></path>
+                    <path d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"></path>
+                  </svg>
+                  <input type="password" class="input" placeholder="Enter your Password">
+                </div>
+                <div class="flex-row">
+                  <div>
+                    <input type="checkbox">
+                    <label>Remember me </label>
+                  </div>
+                  <span class="span">Forgot password?</span>
+                </div>
+                <button class="bttn-submit">Login</button>
+                <p class="p">Don't have an account? <button id="showSignupBtn">Sign Up</button></p>
+              </form>
+            </div>
+          </div>
+          
         <button id="hamburger" aria-label="hamburger" aria-haspopup="true" aria-expanded="false">
           <i class="bx bx-menu" aria-hidden="true"></i>
         </button>
       </div>
+
     </div>
   </header>
   
   <!-- Page markup: Not important -->
-  <main style="padding: 1.5rem; margin: 0 auto; max-width: 1300px">
-    <h1>Navigation Bar</h1>
-    <p>
-      Want to learn how to make this?
-      <a style="text-decoration: underline; color: var(--primary-color)" href="https://www.freecodecamp.org/news/how-to-build-a-responsive-navigation-bar-with-dropdown-menu-using-javascript/" target="_blank">Read the tutorial</a>
-    </p>
+  <main >
 
     <div id="content">
         {% block content %}
@@ -131,8 +200,9 @@
 
                 <div class="related-terms">
                     <h2>Related Terms</h2>
-                    <p class="related-terms-list">ufion, ufien</p>
+                        <p class="related-terms-list">ufion, ufien</p>
                 </div>
+
                 <div class="separator"></div>
             </div>
 
@@ -180,13 +250,20 @@
         
                     <div class="line-icons-container">
                         <h2>Example Sentences</h2>
-                    </div>
-        
+                    </div>     
+
+
                     <div class="related-terms">
                         <h2>Related Terms</h2>
-                        <p class="related-terms-list">{{ results[0]['related_terms'] }}</p>
+                        {% if results and results[0]['related_terms'] %}
+                            {% for term in results[0]['related_terms'].split(', ') %}
+                                <a href="/search?query={{ term }}">{{ term }}</a>{% if not loop.last %},{% endif %}
+                            {% endfor %}
+                        {% endif %}
                     </div>
+
                     <div class="separator"></div>
+                    
                 </div>
             {% else %}
                 <p>Not found</p>
@@ -302,9 +379,11 @@
         <script src="{{ url_for('static', path='/js/nav.js') }}"></script>
         <script src="{{ url_for('static', path='/js/edit.js') }}"></script>
         <script src="{{ url_for('static', path='/js/speaker.js') }}"></script>
+        <script src="{{ url_for('static', path='/js/speaker.js') }}"></script>
         <script src="{{ url_for('static', path='/js/newform.js') }}"></script>
-       <!-- <script src="{{ url_for('static', path='/js/speaker.js') }}"></script>
-        -->
+        <script src="{{ url_for('static', path='/js/sign.js') }}"></script>
+        <script src="{{ url_for('static', path='/js/sign.js') }}"></script>
+
 
 
 
@@ -320,9 +399,3 @@
 
 </body>
 </html>
-
-
-<body>
-    <script src="{{ url_for('static', path='/js/nav.js') }}"></script>
-</body>
-

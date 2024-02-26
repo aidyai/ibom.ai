@@ -1,0 +1,54 @@
+<!-- new_page.html -->
+{% extends "nav.html" %}
+
+{% block content %}      
+    <!----======== CSS ======== -->
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+      </head>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/dash.css') }}">
+
+    <div class="continer">
+        <div class="inner-continer">
+            
+          <a href="/db/speak" class="button" title="Home">
+            Speak
+          </a>
+          <a href="/db/write" class="button" title="Post List">
+            Write
+          </a>
+          <a href="/db/suggest" class="button" title="About Me">
+            Suggest
+          </a>
+        </div>
+    </div>
+    
+
+    <div class="dassh">
+        <h1>DASHBOARD</h1>
+    </div>
+
+    <div class="progress-section" data-aos="fade-left" data-aos-once="true">
+   
+        <div class="task-progress">
+          <p>Audio Data
+            <span>250k/5m</span>
+          </p>
+          <progress class="progress progress1" max="5000000" value="250000"></progress>
+        </div>
+        <div class="task-progress">
+          <p>Text Data
+            <span>100k/5m</span>
+          </p>
+          <progress class="progress progress3" max="5000000" value="100000"></progress>
+        </div>
+      </div>
+
+
+
+
+
+
+{% endblock %}

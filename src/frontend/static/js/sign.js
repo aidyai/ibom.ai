@@ -47,4 +47,49 @@ async function signup(event) {
       alert('Invalid credentials. Please try again.'); // or handle login failure in your app
     }
   }
-  
+
+
+
+
+
+// Add event listeners to show/hide forms
+document.getElementById("loginBtn").addEventListener("click", function() {
+  document.getElementById("loginForm").style.display = "block";
+  document.getElementById("signUpForm").style.display = "none";
+  document.getElementById("modalContainer").style.display = "block";
+});
+
+document.getElementById("signupBtn").addEventListener("click", function() {
+  document.getElementById("loginForm").style.display = "none";
+  document.getElementById("signUpForm").style.display = "block";
+  document.getElementById("modalContainer").style.display = "block";
+});
+
+document.getElementById("showSignupBtn").addEventListener("click", function() {
+  document.getElementById("loginForm").style.display = "none";
+  document.getElementById("signUpForm").style.display = "block";
+});
+
+document.getElementById("showLoginBtn").addEventListener("click", function() {
+  document.getElementById("loginForm").style.display = "block";
+  document.getElementById("signUpForm").style.display = "none";
+});
+
+
+// Function to close the modal
+function closeModal(event) {
+  // Check if the click is outside the modal content or on the modal container
+  if (event.target === modalContainer) {
+    // Hide the modal container
+    modalContainer.style.display = 'none';
+  }
+}
+
+// Add click event listener to the modal container
+modalContainer.addEventListener('click', closeModal);
+
+
+
+
+
+

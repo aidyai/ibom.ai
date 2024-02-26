@@ -1,0 +1,104 @@
+{% extends "nav.html" %}
+{% block content %}
+
+
+
+    <!-- Stylesheet -->
+    <!DOCTYPE html>
+    <!-- Coding By CodingNepal - codingnepalweb.com -->
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!----======== CSS ======== -->
+        <link rel="stylesheet" href="{{ url_for('static', path='/css/co.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='/css/demo.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='/css/dash.css') }}">
+
+        
+        <!----===== Iconscout CSS ===== -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+        <title></title>
+    </head>
+    <body>
+
+        <section>
+
+            <div class="continer">
+                <div class="inner-continer">
+                    
+                  <a href="/db/speak" class="button" title="Speak">
+                    Speak
+                  </a>
+                  <a href="/db/write" class="button" title="Write">
+                    Write
+                  </a>
+                  <a href="/db/suggest" class="button" title="Suggest">
+                    Suggest
+                  </a>
+                </div>
+            </div>
+
+            <div class="card2d" id="card">
+                <div id="randomTextContainer">
+                    <p id="randomText">The old bookshelf creaks under the weight of well-worn novels</p>
+                </div>
+        
+                <form id="feedbackForm">
+                    <input type="text" id="user-input" placeholder="Enter the text in the image" />
+                </form>
+        
+                <div class="sc-1v1crxt-1 jDkkcD">
+                    <div class="sc-1v1crxt-2 ftglNV">
+                        <buttton data-testid="typing-response-á-0" class="sc-xix3gw-0 kngrRb">a</buttton>
+                        <buttton data-testid="typing-response-à-1" class="sc-xix3gw-0 kngrRb">b</buttton>
+                        <buttton data-testid="typing-response-é-2" class="sc-xix3gw-0 kngrRb">d</buttton>
+                        <buttton data-testid="typing-response-è-3" class="sc-xix3gw-0 kngrRb">e</buttton>
+                        <buttton data-testid="typing-response-ẹ-4" class="sc-xix3gw-0 kngrRb">f</buttton>
+                        <buttton data-testid="typing-response-ẹ́-5" class="sc-xix3gw-0 kngrRb">g</buttton>
+                        <buttton data-testid="typing-response-ẹ-6" class="sc-xix3gw-0 kngrRb">h</buttton>
+                        <buttton data-testid="typing-response-̀-7" class="sc-xix3gw-0 kngrRb">i</buttton>
+                        <buttton data-testid="typing-response-í-8" class="sc-xix3gw-0 kngrRb">ị</buttton>
+                        <buttton data-testid="typing-response-ì-9" class="sc-xix3gw-0 kngrRb">Ə</buttton>
+                        <buttton data-testid="typing-response-ó-10" class="sc-xix3gw-0 kngrRb">p</buttton>
+                        <buttton data-testid="typing-response-ò-11" class="sc-xix3gw-0 kngrRb">ʌ</buttton>
+                        <buttton data-testid="typing-response-ọ-12" class="sc-xix3gw-0 kngrRb">n</buttton>
+                        <buttton data-testid="typing-response-ọ́-13" class="sc-xix3gw-0 kngrRb">ñ</buttton>
+                        <buttton data-testid="typing-response-ọ-14" class="sc-xix3gw-0 kngrRb">ọ</buttton>
+                        <buttton data-testid="typing-response-̀-15" class="sc-xix3gw-0 kngrRb">p</buttton>
+                        <buttton data-testid="typing-response-ú-16" class="sc-xix3gw-0 kngrRb">r</buttton>
+                        <buttton data-testid="typing-response-ù-17" class="sc-xix3gw-0 kngrRb">t</buttton>
+                        <buttton data-testid="typing-response-ṣ-18" class="sc-xix3gw-0 kngrRb">u</buttton>
+                        <buttton data-testid="typing-response-ṣ-18" class="sc-xix3gw-0 kngrRb">w</buttton>
+                        <buttton data-testid="typing-response-ṣ-18" class="sc-xix3gw-0 kngrRb">ŋ</buttton>
+                        <buttton data-testid="typing-response-ṣ-18" class="sc-xix3gw-0 kngrRb">y</buttton>
+                        <buttton data-testid="typing-response-ṣ-18" class="sc-xix3gw-0 kngrRb">ↄ</buttton>
+                        <buttton data-testid="typing-response-ṣ-18" class="sc-xix3gw-0 kngrRb">k</buttton>
+                    </div>
+                </div>
+                <form>
+                    <buttton type="buttton" onclick="submitFeedback()">Submit</buttton>
+                        <div id="successMessage" style="display: none;">Successfully Uploaded! 😊</div>
+                </form>
+            </div>
+        </section>
+
+
+
+        <script src="{{ url_for('static', path='/js/dashboard.js') }}"></script>
+        <script src="{{ url_for('static', path='/js/demo.js') }}"></script>
+        <script src="{{ url_for('static', path='/js/dynamic.js') }}"></script>
+        <script src="{{ url_for('static', path='/js/keyboard.js') }}"></script>
+
+
+    </body>
+    </html>
+
+
+
+
+
+{% endblock %}

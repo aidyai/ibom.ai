@@ -177,7 +177,7 @@ i {
 
 .pos {
     color: #ff0000;
-    margin-top: -21px;
+    margin-top: -5px;
 }
 
 
@@ -185,8 +185,8 @@ i {
     text-align: justify;
     position: relative;
     background-color: rgb(255 255 255 / 77%);
-    padding: 12px;
-    border-radius: 7px;
+    padding: 29px;
+    border-radius: 14px;
     border: 0;
 }
 
@@ -201,43 +201,12 @@ i {
 
 
 .definition {
-    color: #4b0202;
-}
-
-
-.separator {
-    border: none;
-    height: 1px;
-    background-color: #9d9abd;
-    margin: -8px 0;
+    color: #000;
 }
 
 
 
 
-.related-terms,
-.example-sentences {
-    margin-top: 20px; /* Add spacing between sections */
-}
-
-.related-terms h3,
-.example-sentences h3 {
-    font-size: 18px;
-}
-
-
-.related-terms {
-    margin-top: 20px; /* Add spacing between sections */
-}
-
-.related-terms h3 {
-    font-size: 18px;
-}
-
-.related-terms-list {
-    margin-top: -15px; /* Adjust the margin as needed */
-    white-space: nowrap; /* Prevent line breaks */
-}
 
 
 
@@ -268,12 +237,8 @@ i {
 
 
 
-.line-icons-container {
-    display: flex;
-    align-items: center;
-    margin-top: 10px; /* Adjust the margin as needed */
-    position: relative; /* Add relative positioning */
-}
+
+
 
 .horizontal-line {
     border: none;
