@@ -49,7 +49,7 @@ button {
   text-decoration: none; /* Removes default underline */
 }
 
-..logo img {
+.logo img {
   width: 43px;
   height: 53px;
   margin-top: 10px;
@@ -238,13 +238,17 @@ button {
   }
 
   .menu {
-    display: none;
-    position: absolute;
-    top: 87px;
-    left: 0;
+    position: fixed; /* Change position to fixed */
+    top: 0; /* Position at the top of the viewport */
+    left: 0; /* Position at the left of the viewport */
+    display: none; /* Hide the navigation menu by default */
     min-height: 100vh;
     width: 100vw;
+    background-color: var(--white); /* Add background color */
+    z-index: 1000; /* Ensure the menu appears above other content */
   }
+
+ 
 
   .menu-bar li:first-child ul:nth-child(1) {
     border-right: none;
@@ -301,24 +305,45 @@ button {
   }
 }
 
+
+
 @media (max-width: 600px) {
-  .right-container {
+  
+
+  /* Hide elements in the navigation bar except for hamburger and nav-start */
+
+
+  /* Show hamburger menu */
+  #hamburger {
+    display: block;
+  }
+  
+
+
+
+  /* Adjust modal container styles */
+  #modalContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
     display: none;
   }
+
+  /* Style for modal content */
+  .modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
