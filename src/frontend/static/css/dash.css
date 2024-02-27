@@ -41,9 +41,9 @@
 
 
 .dassh {
-    margin: auto 38px;
-    margin-top: 37px;
-    margin-bottom: -46px;
+  margin: auto 377px;
+  margin-top: 37px;
+  margin-bottom: -30px;
 }
 
 .progress-section {
@@ -116,4 +116,11 @@
       background: #18e23c;
     }
 
-  
+
+@media (max-width: 600px) {
+    .dassh {
+      margin: auto 104px;
+      margin-top: 37px;
+      margin-bottom: -34px;
+  }
+}

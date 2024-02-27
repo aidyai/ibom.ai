@@ -100,7 +100,7 @@ async def page(request:Request):
 
 @app.get('/nh')
 async def page(request:Request):
-    return templates.TemplateResponse("ndex.html", {"request":request})
+    return templates.TemplateResponse("index.html", {"request":request})
 
 
 
