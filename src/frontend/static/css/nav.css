@@ -308,18 +308,18 @@ button {
 
 
 @media (max-width: 600px) {
-  
-
   /* Hide elements in the navigation bar except for hamburger and nav-start */
-
+  #profile,
+  #loginBtn,
+  #signupBtn,
+  .menu-bar {
+    display: none;
+  }
 
   /* Show hamburger menu */
   #hamburger {
     display: block;
   }
-  
-
-
 
   /* Adjust modal container styles */
   #modalContainer {
@@ -340,12 +340,6 @@ button {
     align-items: center;
     height: 100%;
   }
-
-
-
 }
-
-
-
 
 
