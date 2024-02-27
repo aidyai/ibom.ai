@@ -43,21 +43,6 @@ button {
   color: inherit;
 }
 
-
-.logo {
-  display: inline-block; /* Ensures the anchor behaves like a block */
-  text-decoration: none; /* Removes default underline */
-}
-
-.logo img {
-  width: 43px;
-  height: 53px;
-  margin-top: 10px;
-}
-
-
-
-
 .btn {
   display: block;
   background-color: var(--primary-color);
@@ -87,6 +72,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 1600px;
+  margin: 0 auto;
   column-gap: 2rem;
   height: 90px;
   padding: 1.2rem 3rem;
@@ -228,6 +215,9 @@ button {
   font-size: 1.9rem;
 }
 
+
+
+
 @media (max-width: 1100px) {
   #hamburger {
     display: block;
@@ -238,17 +228,15 @@ button {
   }
 
   .menu {
-    position: fixed; /* Change position to fixed */
-    top: 0; /* Position at the top of the viewport */
-    left: 0; /* Position at the left of the viewport */
-    display: none; /* Hide the navigation menu by default */
-    min-height: 100vh;
+    display: none;
+    position: absolute;
+    top: 87px;
+    left: 0;
+    min-height: 230vh;
     width: 100vw;
-    background-color: var(--white); /* Add background color */
-    z-index: 1000; /* Ensure the menu appears above other content */
   }
 
- 
+
 
   .menu-bar li:first-child ul:nth-child(1) {
     border-right: none;
@@ -269,10 +257,16 @@ button {
     box-shadow: none;
   }
 
+  #hamburger,
   .menu.show,
   .dropdown.active {
     display: block;
+    z-index: 999;
+    margin: 0px;
+
   }
+
+  
 
   .dropdown ul {
     padding-left: 0.3rem;
@@ -286,13 +280,19 @@ button {
     padding: 1rem;
   }
 
+  
+
+
+
+
+
   .menu-bar .nav-link {
     display: flex;
     justify-content: space-between;
     width: 100%;
     font-weight: 600;
     font-size: 1.2rem;
-    margin: 0;
+    margin: 0px;
   }
 
   .menu-bar li:first-child .dropdown {
@@ -305,41 +305,27 @@ button {
   }
 }
 
-
-
 @media (max-width: 600px) {
-  /* Hide elements in the navigation bar except for hamburger and nav-start */
-  #profile,
-  #loginBtn,
-  #signupBtn,
-  .menu-bar {
-    display: none;
+  .right-container {
+    display: block;
   }
 
-  /* Show hamburger menu */
   #hamburger {
     display: block;
   }
 
-  /* Adjust modal container styles */
-  #modalContainer {
-    position: fixed;
-    top: 0;
+  
+  .menu {
+    display: none;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    display: none;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 100;
   }
 
-  /* Style for modal content */
-  .modal-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
+
+  
 }
 
 

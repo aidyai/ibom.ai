@@ -1,11 +1,9 @@
+// script.js
 const dropdownBtn = document.querySelectorAll(".dropdown-btn");
 const dropdown = document.querySelectorAll(".dropdown");
 const hamburgerBtn = document.getElementById("hamburger");
 const navMenu = document.querySelector(".menu");
 const links = document.querySelectorAll(".dropdown a");
-const loginBtn = document.getElementById("loginBtn");
-const signupBtn = document.getElementById("signupBtn");
-const modalContainer = document.getElementById("modalContainer");
 
 function setAriaExpandedFalse() {
   dropdownBtn.forEach((btn) => btn.setAttribute("aria-expanded", "false"));
@@ -20,35 +18,31 @@ function closeDropdownMenu() {
 
 function toggleHamburger() {
   navMenu.classList.toggle("show");
+  const mainContent = document.getElementById("main-content");
   if (navMenu.classList.contains("show")) {
-    // If hamburger menu is opened, append login and signup buttons
-    navMenu.appendChild(loginBtn);
-    navMenu.appendChild(signupBtn);
+    // Hamburger menu is open, hide the main content
+    mainContent.style.display = "none";
+    // Show the menu covering the entire screen
+    document.body.style.overflow = "hidden"; // Prevent scrolling of the underlying content
   } else {
-    // If hamburger menu is closed, move login and signup buttons back to their original position
-    document.querySelector('.right-container').appendChild(loginBtn);
-    document.querySelector('.right-container').appendChild(signupBtn);
+    // Hamburger menu is closed, show the main content
+    mainContent.style.display = "";
+    // Restore scrolling of the underlying content
+    document.body.style.overflow = "";
   }
 }
 
-function hideNavLinks() {
-  navMenu.classList.remove("show");
-}
+document.body.addEventListener("click", function(event) {
+  const isHamburgerClicked = event.target.closest("#hamburger") !== null;
+  const isMenuClicked = event.target.closest(".menu") !== null;
+  if (!isHamburgerClicked && !isMenuClicked && navMenu.classList.contains("show")) {
+    toggleHamburger();
+  }
+});
 
-// Add event listeners to the login and signup buttons
-loginBtn.addEventListener('click', hideNavLinks);
-signupBtn.addEventListener('click', hideNavLinks);
 
-// Toggle hamburger menu
-hamburgerBtn.addEventListener("click", toggleHamburger);
 
-function hideNavLinks() {
-  navMenu.classList.remove("show");
-}
 
-// Add event listeners to the login and signup buttons
-loginBtn.addEventListener('click', hideNavLinks);
-signupBtn.addEventListener('click', hideNavLinks);
 
 dropdownBtn.forEach((btn) => {
   btn.addEventListener("click", function (e) {
@@ -69,7 +63,7 @@ dropdownBtn.forEach((btn) => {
   });
 });
 
-// Close dropdown menu when the dropdown links are clicked
+// close dropdown menu when the dropdown links are clicked
 links.forEach((link) =>
   link.addEventListener("click", () => {
     closeDropdownMenu();
@@ -78,13 +72,13 @@ links.forEach((link) =>
   })
 );
 
-// Close dropdown menu when you click on the document body
+// close dropdown menu when you click on the document body
 document.documentElement.addEventListener("click", () => {
   closeDropdownMenu();
   setAriaExpandedFalse();
 });
 
-// Close dropdown when the escape key is pressed
+// close dropdown when the escape key is pressed
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     closeDropdownMenu();
@@ -92,6 +86,4 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-
-
-
+hamburgerBtn.addEventListener("click", toggleHamburger);
