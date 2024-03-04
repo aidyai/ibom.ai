@@ -41,7 +41,7 @@
 
 
 .dassh {
-  margin: auto 377px;
+  margin: auto 450px;
   margin-top: 37px;
   margin-bottom: -30px;
 }
@@ -125,3 +125,13 @@
     }
 
   }
+
+
+@media (max-width: 1000px) {
+  .dassh {
+      margin: 370px;
+      margin-top: 37px;
+      margin-bottom: -30px;
+  }
+
+}

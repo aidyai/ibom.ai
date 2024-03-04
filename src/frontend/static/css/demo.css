@@ -145,14 +145,7 @@ buttton#submit-button {
     margin: auto;
 }
 
-.ftglNV {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    padding: 13px 30px 0.25rem;
-    margin-top: -1rem;
-    margin-inline: -0.5rem;
-}
+
 
 .ftglNV > * {
     margin-top: 1rem;
@@ -166,12 +159,6 @@ buttton#submit-button {
     align-items: flex-start;
 }
 
-.jDkkcD {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    
-}
 
 
 .kngrRb {
@@ -273,7 +260,9 @@ buttton {
 
 
 
-@media screen and (max-width: 768px) {
+
+@media (max-width: 600px) {
+
     .jDkkcD,
     .ftglNV {
         justify-content: flex-start; /* Align buttons to the start */
@@ -290,4 +279,16 @@ buttton {
         width: calc(20% - 10px); /* Adjust button width with spacing */
         margin: 5px; /* Add margin between buttons */
     }
+
+    .card2d {
+        background-color: #000000;
+        border-radius: 5px;
+        padding: 13px;
+        margin: 20px auto;
+        max-width: 637px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+        margin-bottom: 60px;
+    }
+    
 }
