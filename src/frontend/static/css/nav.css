@@ -34,6 +34,7 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+  margin-left: 10px;
 }
 
 button {
@@ -347,7 +348,7 @@ button {
   .menu-bar li:first-child ul:nth-child(1) {
       border-right: none;
       border-bottom: var(--border);
-      margin-left: 10px;
+      margin-left: 18px;
   }
 
   .dropdown {
@@ -403,7 +404,7 @@ button {
   }
 
   .menu-bar li:first-child .dropdown {
-    min-width: 100%;
+    width: 135px;
   }
 
   .menu-bar > li:not(:last-child) {

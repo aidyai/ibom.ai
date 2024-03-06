@@ -94,9 +94,9 @@ async def ibom_api_page(request:Request):
     return templates.TemplateResponse("dash.html", {"request":request})
 
 
-@app.get('/h')
+@app.get('/gpt')
 async def page(request:Request):
-    return templates.TemplateResponse("sign.html", {"request":request})
+    return templates.TemplateResponse("gpt.html", {"request":request})
 
 @app.get('/nh')
 async def page(request:Request):

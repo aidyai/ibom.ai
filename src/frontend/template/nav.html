@@ -40,9 +40,9 @@
     <div class="nav-start">
       <a class="logo" href="/">
         <img
-          src="/assets/images/logo.png"
-          width="35"
-          height="35"
+          src="{{ url_for('static', path='img/africa.png')}}"
+          width="40"
+          height="40"
           alt="Inc Logo"
         />
       </a>
@@ -60,20 +60,28 @@
             <div id="dropdown2" class="dropdown">
               <ul role="menu">
 
+                <a href="#profile">
+                    <img width="48" height="48" src="https://img.icons8.com/color/48/circled-user-male-skin-type-5--v1.png" alt="circled-user-male-skin-type-5--v1"/>
+                </a>
+
                 <button class="button">
-                  Register
+                    Register
                 </button>
                 <button class="button">
-                  Login
+                   Login
                 </button>
 
-              </ul>
+
+              
+
+            </li>
+            
             </div>
           </li>
 
 
           <li><a class="nav-link" href="/db">Dashboard</a></li>
-          <li><a class="nav-link" href="/">IbomGpt</a></li>
+          <li><a class="nav-link" href="/gpt">IbomGpt</a></li>
           <li><a class="nav-link" href="/">Learn</a></li>
           <li><a class="nav-link" href="/">About</a></li>
 
@@ -84,6 +92,7 @@
       <div class="right-container">
 
       </div>
+
 
       <button
         id="hamburger"
@@ -337,6 +346,11 @@
         <script src="{{ url_for('static', path='/js/newform.js') }}"></script>
         <script src="{{ url_for('static', path='/js/sign.js') }}"></script>
         <script src="{{ url_for('static', path='/js/sign.js') }}"></script>
+        <script src="{{ url_for('static', path='/js/auth.js') }}"></script>
+        <script src="{{ url_for('static', path='/js/avatar.js') }}"></script>
+
+
+
 
 
 
