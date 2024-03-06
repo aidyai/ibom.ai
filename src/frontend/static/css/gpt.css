@@ -11,8 +11,8 @@
 .page_404 img {
     width: 100%;
     height: 619px;
-    margin-top: -33px;
-    margin-bottom: -715px;
+    margin-top: 0px;
+    margin-bottom: -749px;
 }
 
 /* Remove the CSS related to .four_zero_four_bg as it's no longer used for background */
@@ -34,13 +34,13 @@
 }
 
 .contant_box_404 {
-    margin-top: -50px;
+    margin-top: -17px;
 }
 
 
 .img-ah {
     width: 100%;
     position: relative;
-    margin-top: 613px;
+    margin-top: 668px;
     margin-bottom: 0px;
 }
