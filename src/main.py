@@ -20,7 +20,7 @@ from fastapi.responses import JSONResponse, StreamingResponse
 from fastapi.exceptions import HTTPException
 
 from .utils.search import load_json_file, search_
-from .utils.base import JSON_FILE_PATH, firebaseConfig, CREDENTIALS
+from .utils.base import JSON_FILE_PATH, firebaseConfig #,CREDENTIALS
 
 
 import pyrebase
@@ -40,9 +40,9 @@ app = FastAPI()
 app.mount("/frontend/static", StaticFiles(directory= BASE_DIR/"frontend/static"), name="static")
 templates = Jinja2Templates(directory=str(BASE_DIR/"frontend/template"))
 
-if not firebase_admin._apps:
-    cred = credentials.Certificate(CREDENTIALS)
-    firebase_admin.initialize_app(cred)
+#if not firebase_admin._apps:
+##    cred = credentials.Certificate(CREDENTIALS)
+#    firebase_admin.initialize_app(cred)
 
 
 
