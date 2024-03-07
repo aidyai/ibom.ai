@@ -19,8 +19,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 from fastapi.exceptions import HTTPException
 
-from .utils.search import load_json_file, search_
-from .utils.base import JSON_FILE_PATH, firebaseConfig #,CREDENTIALS
+from .utils.search import load_json_file, search
+from .utils.base import JSON_FILE_PATH, firebaseConfig, json_data#,CREDENTIALS
 
 
 import pyrebase
@@ -40,9 +40,9 @@ app = FastAPI()
 app.mount("/frontend/static", StaticFiles(directory= BASE_DIR/"frontend/static"), name="static")
 templates = Jinja2Templates(directory=str(BASE_DIR/"frontend/template"))
 
-#if not firebase_admin._apps:
-##    cred = credentials.Certificate(CREDENTIALS)
-#    firebase_admin.initialize_app(cred)
+if not firebase_admin._apps:
+    cred = credentials.Certificate(json_data)
+    firebase_admin.initialize_app(cred)
 
 
 
@@ -75,7 +75,7 @@ async def home(request:Request):
 async def search(request:Request, query: str = Query(..., title="Search Query", description="The word to search for")):
     #json_file_path = BASE_DIR/'dict5k_.json'  # Replace with the actual path to your JSON file
 
-    results = search_(query, JSON_FILE_PATH)
+    results = search(query, JSON_FILE_PATH)
     return templates.TemplateResponse("nav.html", {"request": request, "results": results})
     
 

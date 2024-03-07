@@ -34,7 +34,8 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
-  margin-left: 10px;
+  margin-left: -14px;
+  margin-top: 3px;
 }
 
 button {
@@ -167,7 +168,10 @@ button {
 
 .logo {
   margin-right: 1.5rem;
+  margin-left: -10px;
+
 }
+
 
 #nav-menu {
   border-bottom: var(--border);

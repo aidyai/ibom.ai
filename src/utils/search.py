@@ -7,7 +7,7 @@ def load_json_file(file_path: Path):
         json_data = json.load(file)
     return json_data
 
-def search_(query, json_file_path):
+def search(query, json_file_path):
     json_data = load_json_file(json_file_path)
 
     results = []
