@@ -1,4 +1,4 @@
-
+import re
 import pathlib
 from pathlib import Path
 import uvicorn
@@ -62,17 +62,14 @@ class TextRequest(BaseModel):
     text: str
 
 
-
-
-
 # Add your FastAPI routes and functions below
 @app.get("/", response_class=HTMLResponse)
 async def home(request:Request):
     return templates.TemplateResponse("nav.html", {"request":request})
 
 
-@app.get("/search", response_class=HTMLResponse)
-async def search(request:Request, query: str = Query(..., title="Search Query", description="The word to search for")):
+@app.get("/find", response_class=HTMLResponse)
+def find(request:Request, query: str = Query(..., title="Search Query", description="The word to search for")):
     #json_file_path = BASE_DIR/'dict5k_.json'  # Replace with the actual path to your JSON file
 
     results = search(query, JSON_FILE_PATH)
@@ -102,6 +99,9 @@ async def page(request:Request):
 async def page(request:Request):
     return templates.TemplateResponse("index.html", {"request":request})
 
+@app.get('/bd')
+async def page(request:Request):
+    return templates.TemplateResponse("keyboard.html", {"request":request})
 
 
 @app.post('/signup')

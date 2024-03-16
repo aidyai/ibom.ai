@@ -117,7 +117,7 @@
 
         <div class="search-center-container">
             <div class="search-container">
-                <form class="search-box" action="/search" method="get" id="s-f">
+                <form class="search-box" action="/find" method="get" id="s-f">
                     <img width="28" height="28" src="https://img.icons8.com/ios/28/search--v1.png" alt="search--v1" />
                     <input type="search" name="query" id="search-input" placeholder="Search..." required>
                     <button type="submit" class="hidden-submit"></button>
@@ -220,7 +220,7 @@
                         <h2>Related Terms</h2>
                         {% if results and results[0]['related_terms'] %}
                             {% for term in results[0]['related_terms'].split(', ') %}
-                                <a href="/search?query={{ term }}">{{ term }}</a>{% if not loop.last %},{% endif %}
+                                <a href="/find?query={{ term }}">{{ term }}</a>{% if not loop.last %},{% endif %}
                             {% endfor %}
                         {% endif %}
                     </div>
