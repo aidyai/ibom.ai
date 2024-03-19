@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Fontawesome Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
@@ -26,12 +28,71 @@
     <link href="{{ url_for('static', path='/css/popup.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/exsent.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/sign.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/css/password.css') }}" rel="stylesheet">
 
-
-
+    <script src="https://kit.fontawesome.com/1c2c2462bf.js" crossorigin="anonymous"></script>
 
     <title>---</title>
 </head>
+
+
+
+
+
+
+
+<!-- Register Popup -->
+<div id="registerPopup" class="popup">
+    <div class="form-box">
+        <form class="form" action="/signup" method="post" id="signupForm">
+            <span class="title">Sign up</span>
+            <span class="subtitle">Create a free account with your email.</span>
+            <div class="form-container">
+                <input type="text" class="input" placeholder="Full Name" name="full_name">
+                <input type="email" class="input" placeholder="Email" name="email">
+                <div class="password-input">
+                    <input type="password" class="input" id="password" placeholder="Password" name="password">
+                    <span class="show-password" onclick="togglePasswordVisibility()">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
+                <div id="password-check">
+                    <div class="check-item" id="lower-upper-case"><i class="fas fa-check"></i> Lowercase & Uppercase</div>
+                    <div class="check-item" id="one-number"><i class="fas fa-check"></i> Number (0-9)</div>
+                    <div class="check-item" id="one-special-char"><i class="fas fa-check"></i> Special Character (!@#$%^&*)</div>
+                    <div class="check-item" id="eight-character"><i class="fas fa-check"></i> At least 8 Character</div>
+                </div>
+            </div>
+            <button type="submit">Sign up</button>
+        </form>
+        <div class="form-section">
+            <p>Already have an account? <a href="#" onclick="toggleLoginPopup()">Sign in</a></p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Login Popup -->
+<div id="loginPopup" class="loginpopup">
+    <div class="form-box">
+        <form class="form" action="/login" method="post">
+            <span class="title">Welcome back</span>
+            <span class="subtitle">Sign in to continue</span>
+            <div class="form-container">
+              <input type="email" class="input" placeholder="Email">
+              <input type="password" class="input" placeholder="Password">
+            </div>
+            <button>Sign in</button>
+        </form>
+        <div class="form-section">
+            <p>Don't have an account? <a href="#" onclick="toggleSignupPopup()">Sign up</a></p>
+        </div>
+    </div>
+
+</div>
+
+<!-- Overlay -->
+<div id="overlay" class="overlay"></div>
 
 
 
@@ -64,15 +125,18 @@
                     <img width="48" height="48" src="https://img.icons8.com/color/48/circled-user-male-skin-type-5--v1.png" alt="circled-user-male-skin-type-5--v1"/>
                 </a>
 
-                <button class="button">
+                <!--<a href="/signup" class="bu3tton" onclick="openForm('signup-form')">
                     Register
-                </button>
-                <button class="button">
-                   Login
-                </button>
+                </a>
+                <a href="/login" class="bu3tton" onclick="openForm('login-form')">
+                    Login
+                </a>-->
+                <a href="#" class="bu3tton" id="registerButton">Register</a>
+                <a href="#" class="bu3tton" id="loginButton">Login</a>
 
 
-              
+                
+                
 
             </li>
             
@@ -108,7 +172,7 @@
   </div>
 </header>
 
-  
+
   <!-- Page markup: Not important -->
   <main >
 
@@ -274,7 +338,92 @@
         </div>
         
 
-
+<div class="cont">
+    <form class="form-horizontal" id="validateForm">
+        <h1>Welcome</h1>
+        <fieldset>
+            <!-- Email input-->
+            <div class="form-group">
+                <label class="col-md-12 control-label" for="textinput">
+                    Email
+                </label>
+                <div class="col-md-12">
+                    <input id="email" name="textinput" 
+                    type="email" autocomplete="off" 
+                    placeholder="Enter your email address" 
+                    class="form-control input-md">
+                </div>
+            </div>
+            
+            <!-- Password input-->
+            <div class="form-group">
+                <label class="col-md-12 control-label" for="passwordinput">
+                    Password
+                </label>
+                <div class="col-md-12">
+                    <input id="password" class="form-control input-md"
+                    name="password" type="password" 
+                    placeholder="Enter your password" >
+                    <span class="show-pass" onclick="toggle()">
+                        <i class="far fa-eye" onclick="myFunction(this)"></i>
+                    </span>
+                    <div id="popover-password">
+                        <p><span id="result"></span></p>
+                        <div class="progress">
+                            <div id="password-strength" 
+                                class="progress-bar" 
+                                role="progressbar" 
+                                aria-valuenow="40" 
+                                aria-valuemin="0" 
+                                aria-valuemax="100" 
+                                style="width:0%">
+                            </div>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="">
+                                <span class="low-upper-case">
+                                    <i class="fas fa-circle" aria-hidden="true"></i>
+                                    &nbsp;Lowercase &amp; Uppercase
+                                </span>
+                            </li>
+                            <li class="">
+                                <span class="one-number">
+                                    <i class="fas fa-circle" aria-hidden="true"></i>
+                                    &nbsp;Number (0-9)
+                                </span> 
+                            </li>
+                            <li class="">
+                                <span class="one-special-char">
+                                    <i class="fas fa-circle" aria-hidden="true"></i>
+                                    &nbsp;Special Character (!@#$%^&*)
+                                </span>
+                            </li>
+                            <li class="">
+                                <span class="eight-character">
+                                    <i class="fas fa-circle" aria-hidden="true"></i>
+                                    &nbsp;Atleast 8 Character
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Button -->
+            
+            <div class="form-group">
+                <a href="#" class="btn login-btn btn-block">
+                    Create Account
+                </a>    
+            </div>
+            <div class="ex-account text-center">
+                <p>Already have an account? Signin 
+                    <a href="/">here</a>
+                </p>
+                <div class="divider"></div>
+            </div>
+        </fieldset>
+    </form>   
+</div>
 
 
 
@@ -344,26 +493,15 @@
         <script src="{{ url_for('static', path='/js/speaker.js') }}"></script>
         <script src="{{ url_for('static', path='/js/speaker.js') }}"></script>
         <script src="{{ url_for('static', path='/js/newform.js') }}"></script>
-        <script src="{{ url_for('static', path='/js/sign.js') }}"></script>
-        <script src="{{ url_for('static', path='/js/sign.js') }}"></script>
         <script src="{{ url_for('static', path='/js/auth.js') }}"></script>
         <script src="{{ url_for('static', path='/js/avatar.js') }}"></script>
-
-
-
-
-
-
+        <script src="{{ url_for('static', path='/js/pop.js') }}"></script>
+        <script src="{{ url_for('static', path='/js/password.js') }}"></script>
 
 
 
 
   </main>
-
-
-
-
-
 
 </body>
 </html>

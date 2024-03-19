@@ -55,7 +55,7 @@ if not firebase_admin._apps:
 #firebase = pyrebase.initialize_app()
 firebase = pyrebase.initialize_app(firebaseConfig)
 #db = firebase.database()
-auth = firebase.auth()
+authe = firebase.auth()
 
 
 class TextRequest(BaseModel):
@@ -101,25 +101,33 @@ async def page(request:Request):
 
 @app.get('/bd')
 async def page(request:Request):
-    return templates.TemplateResponse("keyboard.html", {"request":request})
+    return templates.TemplateResponse("keyboard`.html", {"request":request})
 
 
+
+
+    
 @app.post('/signup')
-async def create_acccount(user_data:SignUpSchema):
-    email = user_data.email
-    password = user_data.password
+async def signup(request: Request, full_name: str = Form(...), email: str = Form(...), password: str = Form(...)):
+
     try:
+        # Create a user with email and password in Firebase Authentication
         user = auth.create_user(
-            email = email,
-            password = password
+            email=email,
+            password=password,
+            display_name=full_name
         )
-        return JSONResponse(content={"message": f"{user.uid} account, succesfully created"},
-                            status_code=201)    
-    except auth.EmailAlreadyExistsError:
-        raise HTTPException(
-            status_code=400,
-            detail=f"User account for {email} already exists"
-        )
+        return {"message": "User created successfully", "uid": user.uid}
+    
+    except:
+        if email:
+            emailexists=auth.get_user_by_email(email)
+            if(emailexists.uid):
+
+                return {'message': 'user is already exists '}
+        else:
+             return {'message': 'error creating in user'}
+
 
 
 @app.post('/login')
@@ -143,7 +151,6 @@ async def access_token_create(user_data:LoginSchema):
             status_code=400,detail="Invalid Credentials"
         )
 
-
 @app.post('/pint')
 async def val_access_token(request:Request):
     headers = request.headers
@@ -152,3 +159,5 @@ async def val_access_token(request:Request):
     user = auth.verify_id_token(jwt)
     return user['user_id']
   
+
+

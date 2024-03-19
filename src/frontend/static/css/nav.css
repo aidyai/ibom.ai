@@ -46,17 +46,41 @@ button {
 }
 
 
-
+.bu3tton {
+  position: relative;
+  padding: 7px 0px;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background-color: #7d2ae8;
+  transition: all 0.52s ease;
+  width: 84px;
+  text-align: center;
+  margin-left: 0px;
+}
+     
 .button {
   position: relative;
-  padding: 5px 0px;
+  padding: 7px 0px;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background-color: #7d2ae8;
+  transition: all 0.52s ease;
+  width: 74px;
+}
+.buttton {
+  position: relative;
+  padding: 7px 7px;
   border-radius: 6px;
   border: none;
   color: #fff;
   cursor: pointer;
   background-color: #7d2ae8;
   transition: all 0.2s ease;
-  width: 77px;
+  width: 74px;
 }
 
 .button:active {
@@ -261,7 +285,7 @@ button {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  padding: 1.2rem;
+  padding: 1.35rem;
   font-size: 0.95rem;
 }
 

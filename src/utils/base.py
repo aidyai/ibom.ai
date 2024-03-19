@@ -80,3 +80,5 @@ firebaseConfig = {
     'measurementId': os.getenv("MEASUREMENT_ID"),
     'name': os.getenv("NAME")
 }
+
+

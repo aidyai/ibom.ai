@@ -1,95 +1,82 @@
-async function signup(event) {
-    event.preventDefault();
-  
-    const email = document.getElementById('signup-email').value;
-    const password = document.getElementById('signup-password').value;
-  
-    const userData = { email, password };
-  
-    try {
-      const response = await fetch('/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userData)
-      });
-  
-      const data = await response.json();
-      alert(data.message); // or display success message in HTML
-    } catch (error) {
-      console.error('Error:', error);
-      alert('An error occurred. Please try again.'); // or display error message in HTML
-    }
-  }
-  
-  async function signin(event) {
-    event.preventDefault();
-  
-    const email = document.getElementById('signin-email').value;
-    const password = document.getElementById('signin-password').value;
-  
-    const userData = { email, password };
-  
-    try {
-      const response = await fetch('/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userData)
-      });
-  
-      const data = await response.json();
-      alert('Logged in successfully!'); // or handle login success in your app
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Invalid credentials. Please try again.'); // or handle login failure in your app
-    }
-  }
-
-
-
-
-
-// Add event listeners to show/hide forms
-document.getElementById("loginBtn").addEventListener("click", function() {
-  document.getElementById("loginForm").style.display = "block";
-  document.getElementById("signUpForm").style.display = "none";
-  document.getElementById("modalContainer").style.display = "block";
-});
-
-document.getElementById("signupBtn").addEventListener("click", function() {
-  document.getElementById("loginForm").style.display = "none";
-  document.getElementById("signUpForm").style.display = "block";
-  document.getElementById("modalContainer").style.display = "block";
-});
-
-document.getElementById("showSignupBtn").addEventListener("click", function() {
-  document.getElementById("loginForm").style.display = "none";
-  document.getElementById("signUpForm").style.display = "block";
-});
-
-document.getElementById("showLoginBtn").addEventListener("click", function() {
-  document.getElementById("loginForm").style.display = "block";
-  document.getElementById("signUpForm").style.display = "none";
-});
-
-
-// Function to close the modal
-function closeModal(event) {
-  // Check if the click is outside the modal content or on the modal container
-  if (event.target === modalContainer) {
-    // Hide the modal container
-    modalContainer.style.display = 'none';
-  }
+// Function to serialize form data into JSON format
+function serializeFormToJson(form) {
+    const formData = new FormData(form);
+    const jsonObject = {};
+    formData.forEach((value, key) => {
+        jsonObject[key] = value;
+    });
+    return JSON.stringify(jsonObject);
 }
 
-// Add click event listener to the modal container
-modalContainer.addEventListener('click', closeModal);
+// Function to handle form submission for signup
+async function handleSignupFormSubmission(event) {
+    event.preventDefault(); // Prevent default form submission
 
+    const form = event.target;
+    const formDataJson = serializeFormToJson(form);
 
+    try {
+        const response = await fetch('/signup', {
+            method: 'POST',
+            body: formDataJson,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
 
+        if (response.ok) {
+            const data = await response.json();
+            alert(data.message); // Show success message
+        } else {
+            const errorData = await response.json();
+            alert(errorData.message); // Show error message
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.'); // Show generic error message
+    }
+}
 
+// Add event listener to the signup form
+const signupForm = document.getElementById('signupForm');
+signupForm.addEventListener('submit', handleSignupFormSubmission);
 
+// Login Form Submission
+const loginForm = document.getElementById("loginForm");
+
+loginForm.addEventListener("submit", async function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Get form data
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+
+    // Create JSON object with form data
+    const formData = {
+        email: email,
+        password: password
+    };
+
+    // Send form data to backend endpoint
+    try {
+        const response = await fetch("/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            alert("Login successful!"); // Show success message
+        } else {
+            const errorData = await response.json();
+            alert(errorData.detail); // Show error message
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred. Please try again."); // Show generic error message
+    }
+});
 
