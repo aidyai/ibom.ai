@@ -105,11 +105,9 @@ async def page(request:Request):
 
 
 
-
-    
-@app.post('/signup')
+   
+@app.post("/signup")
 async def signup(request: Request, full_name: str = Form(...), email: str = Form(...), password: str = Form(...)):
-
     try:
         # Create a user with email and password in Firebase Authentication
         user = auth.create_user(
@@ -117,35 +115,40 @@ async def signup(request: Request, full_name: str = Form(...), email: str = Form
             password=password,
             display_name=full_name
         )
-        return {"message": "User created successfully", "uid": user.uid}
-    
-    except:
-        if email:
-            emailexists=auth.get_user_by_email(email)
-            if(emailexists.uid):
 
-                return {'message': 'user is already exists '}
+        # Get the user's email
+        #email = "aidysou553@gmail.com" #handle_user_creation()  # Call the function to get the email
+        
+        # Reload the page after signup
+        #return templates.TemplateResponse("nav.html", {"request": request, "email": email})
+        # Return success message
+        return JSONResponse(content={"message": "User created successfully", "uid": user.uid})
+    
+    except Exception as e:
+        # Handle errors
+        error_message = str(e)
+        if "email" in error_message and "already" in error_message:
+            # Return error message
+            return JSONResponse(content={"message": "User with this email already exists"}, status_code=400)
         else:
-             return {'message': 'error creating in user'}
+            # Return generic error message
+            return JSONResponse(content={"message": "Error creating user"}, status_code=500)
 
 
 
 @app.post('/login')
-async def access_token_create(user_data:LoginSchema):
-    email = user_data.email
-    password = user_data.password
+async def access_token_create(request: Request, email: str = Form(...), password: str = Form(...)):
+
     try:
-        user = firebase.auth().sign_in_with_email_and_password(
+        user = authe.sign_in_with_email_and_password(
             email = email,
             password = password
         )
 
         token = user['idToken']
-        return JSONResponse(
-            content={
-                "token":token
-                }, status_code=200
-        )
+        return {'message': 'login successful '}
+        #return JSONResponse(content={"token":token}, status_code=200)
+    
     except:
         raise HTTPException(
             status_code=400,detail="Invalid Credentials"

@@ -150,6 +150,16 @@ p {
       margin-top: 15px; /* Adjust margin */
   }
 
+  .pass-link {
+    margin-top: 5px;
+    color: #1a75ff;
+    text-decoration: none;
+  }
+  
+  .pass-link, a {
+    font-size: smaller;
+  }
+
   .input {
       height: 30px; /* Adjust height */
       padding: 5px 10px; /* Adjust padding */
@@ -300,4 +310,15 @@ input[type="password"], select {
 /* Align left */
 #password-check {
   text-align: left;
+}
+
+
+.pass-link {
+  margin-top: 5px;
+  color: #1a75ff;
+  text-decoration: none;
+}
+
+.pass-link, a {
+  font-size: smaller;
 }
