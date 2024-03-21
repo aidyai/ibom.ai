@@ -274,7 +274,45 @@
             {% else %}
                 <p>Not found</p>
             {% endif %}
-        
+
+            {% if results %}
+                {% for result in results %}
+                    <div class="fielded">
+                        <div class="term">
+                            <h1 class="Word">{{ result['term'] }}</h1>
+                            <audio class="phonetics-audio"></audio>
+                            <img id="speakerIcon" width="50" height="50" src="https://img.icons8.com/material-rounded/50/speaker.png" alt="speaker" onclick="playTextToSpeech('{{ result['term'] }}')" />
+                            <button class="button has-icon icon-send" onclick="toggleEditForm()">
+                                Edit
+                            </button>
+                        </div>
+                        <h3 class="pos">{{ result['pos'] }}</h3>
+                        <div class="field3">
+                            {% for definition in result['definitions'] %}
+                                <div class="definition">
+                                    <p>{{ loop.index }}. {{ definition }}</p>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="line-icons-container">
+                            <h2>Example Sentences</h2>
+                        </div>
+                        <div class="related-terms">
+                            <h2>Related Terms</h2>
+                            {% if result['related_terms'] %}
+                                {% for term in result['related_terms'].split(', ') %}
+                                    <a href="/find?query={{ term }}">{{ term }}</a>{% if not loop.last %},{% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="separator"></div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Not found</p>
+            {% endif %}
+
+                
             <div id="editForm" class="popup-form" style="display: none;">
                 <h2>Edit Dictionary Entry</h2>
                 <form id="editDictionaryForm" onsubmit="saveContent(); return false;">
