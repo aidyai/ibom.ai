@@ -152,8 +152,9 @@
     color: #fff;
     cursor: pointer;
     background-color: #7d2ae8;
-    transition: all 0.52s ease;
-    width: 77px;
+    /* transition: all 0.52s ease; */
+    /* width: 77px; */
+    margin-left: auto;
 }
 
 
