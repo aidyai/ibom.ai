@@ -44,7 +44,6 @@
 
 <!-- Register Popup -->
 <div id="registerPopup" class="popup">
-
     <div class="form-box">
         <form class="form" action="/signup" method="post" id="signupForm">
             <span class="title">Sign up</span>
@@ -118,20 +117,15 @@
             <li><a class="nav-link" href="/">About</a></li>
             <li>
                 <button class="nav-link dropdown-btn" data-dropdown="dropdown2" aria-haspopup="true" aria-expanded="false" aria-label="discover">
-                    Account <i class="bx bx-chevron-down" aria-hidden="true"></i>
+                    Profile <i class="bx bx-chevron-down" aria-hidden="true"></i>
                 </button>
                 <div id="dropdown2" class="dropdown">
                     <ul role="menu">
-                        <a href="#profile">
-                            <img width="48" height="48" src="https://img.icons8.com/color/48/circled-user-male-skin-type-5--v1.png" alt="circled-user-male-skin-type-5--v1"/>
-                        </a>
-                        <a href="#" class="bu3tton" id="registerButton">Register</a>
-                        <a href="#" class="bu3tton" id="loginButton">Login</a>
+                        <img src="https://via.placeholder.com/150" alt="Avatar" class="profile-avatar">
+                        <span id="userEmail">{{ user_data['email'] }}</span>
                     </ul>                
                 </div>
-            </li>
-          
-
+            </li>     
         </ul>
       </nav>
     </div>
@@ -395,6 +389,8 @@
         <script src="{{ url_for('static', path='/js/avatar.js') }}"></script>
         <script src="{{ url_for('static', path='/js/pop.js') }}"></script>
         <script src="{{ url_for('static', path='/js/password.js') }}"></script>
+        <script src="{{ url_for('static', path='/js/profile.js') }}"></script>
+        <script src="{{ url_for('static', path='/js/validate.js') }}"></script>
 
 
 

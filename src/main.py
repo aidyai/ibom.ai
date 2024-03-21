@@ -9,15 +9,22 @@ import asyncio
 
 from typing import Optional
 from pydantic import BaseModel
-from fastapi import FastAPI, File, Form, UploadFile, Request, Query, HTTPException
+from fastapi import FastAPI, status, File, Request, UploadFile, Query, Form, HTTPException, Depends, Cookie, Response
+
+#from fastapi import FastAPI, File, Form, Depends, UploadFile, Query, HTTPException
 from fastapi.responses import FileResponse, PlainTextResponse
+from starlette.middleware.sessions import SessionMiddleware
 from starlette.requests import Request
+from starlette.responses import Response
+from starlette.routing import Route
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi.responses import RedirectResponse, JSONResponse, StreamingResponse
 from fastapi.exceptions import HTTPException
+#from fastapi.middleware.sessions import SessionMiddleware
+
 
 from .utils.search import load_json_file, search
 from .utils.base import JSON_FILE_PATH, firebaseConfig, json_data#,CREDENTIALS
@@ -27,7 +34,7 @@ import pyrebase
 import firebase_admin
 from firebase_admin import credentials, auth
 from .models import LoginSchema,SignUpSchema
-
+from typing import Dict
 
 
 
@@ -39,6 +46,11 @@ load_dotenv()
 app = FastAPI()
 app.mount("/frontend/static", StaticFiles(directory= BASE_DIR/"frontend/static"), name="static")
 templates = Jinja2Templates(directory=str(BASE_DIR/"frontend/template"))
+
+# Initialize session middleware
+app.add_middleware(SessionMiddleware, secret_key="0912axc56@")
+user_database: Dict[str, Dict[str, str]] = {}
+
 
 if not firebase_admin._apps:
     cred = credentials.Certificate(json_data)
@@ -101,66 +113,55 @@ async def page(request:Request):
 
 @app.get('/bd')
 async def page(request:Request):
-    return templates.TemplateResponse("keyboard`.html", {"request":request})
+    #user_data = {"email": "aidy@gmail.com"}
+    #return templates.TemplateResponse("profile.html", {"request": request, "user_data": user_data})
+    return templates.TemplateResponse("pre.html", {"request":request})
 
 
 
-   
 @app.post("/signup")
-async def signup(request: Request, full_name: str = Form(...), email: str = Form(...), password: str = Form(...)):
+async def create_account(request: Request, full_name: str = Form(...), email: str = Form(...), password: str = Form(...)):
     try:
-        # Create a user with email and password in Firebase Authentication
+        # Create user with provided email and password
         user = auth.create_user(
             email=email,
-            password=password,
-            display_name=full_name
+            password=password
         )
-
-        # Get the user's email
-        #email = "aidysou553@gmail.com" #handle_user_creation()  # Call the function to get the email
-        
-        # Reload the page after signup
-        #return templates.TemplateResponse("nav.html", {"request": request, "email": email})
-        # Return success message
-        return JSONResponse(content={"message": "User created successfully", "uid": user.uid})
-    
+        # Redirect to home page after successful sign-up
+        response = RedirectResponse(url="/home", status_code=status.HTTP_303_SEE_OTHER)
+        response.set_cookie(key="user_id", value=user.uid)
+        return response
     except Exception as e:
-        # Handle errors
-        error_message = str(e)
-        if "email" in error_message and "already" in error_message:
-            # Return error message
-            return JSONResponse(content={"message": "User with this email already exists"}, status_code=400)
-        else:
-            # Return generic error message
-            return JSONResponse(content={"message": "Error creating user"}, status_code=500)
-
+        raise HTTPException(status_code=400, detail=str(e))
 
 
 @app.post('/login')
 async def access_token_create(request: Request, email: str = Form(...), password: str = Form(...)):
-
     try:
         user = authe.sign_in_with_email_and_password(
             email = email,
             password = password
         )
-
-        token = user['idToken']
-        return {'message': 'login successful '}
-        #return JSONResponse(content={"token":token}, status_code=200)
-    
-    except:
-        raise HTTPException(
-            status_code=400,detail="Invalid Credentials"
-        )
-
-@app.post('/pint')
-async def val_access_token(request:Request):
-    headers = request.headers
-    jwt = headers.get('authorization')
-
-    user = auth.verify_id_token(jwt)
-    return user['user_id']
-  
+        response = RedirectResponse(url="/home", status_code=status.HTTP_303_SEE_OTHER)
+        response.set_cookie(key="user_id", value=user.uid)
+        return response
+    except Exception as e:
+        raise HTTPException(status_code=400, detail="Invalid email or password")
 
 
+
+@app.get("/home", response_class=HTMLResponse)
+async def home(request: Request, user_id: Optional[str] = Cookie(None)):
+    if user_id:
+        try:
+            user = auth.get_user(user_id)
+            # Fetch user data from database based on user ID
+            # For demonstration, I'm just passing the user's email
+            user_data = {"email": user.email}
+            return templates.TemplateResponse("profile.html", {"request": request, "user_data": user_data})
+        except Exception as e:
+            # Handle unauthorized access or invalid user ID
+            return RedirectResponse(url="/", status_code=status.HTTP_303_SEE_OTHER)
+    else:
+        # Redirect to login page if user is not authenticated
+        return RedirectResponse(url="/", status_code=status.HTTP_303_SEE_OTHER)
