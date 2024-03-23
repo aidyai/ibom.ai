@@ -1,0 +1,68 @@
+{% extends "nav.html" %}
+{% block content %}
+
+    <!-- Stylesheet -->
+    <!DOCTYPE html>
+    <!-- Coding By CodingNepal - codingnepalweb.com -->
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/assets/favicon.ico">
+
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        
+        
+        
+        <link href="{{ url_for('static', path='/css/ghost.css') }}" rel="stylesheet">
+
+
+
+
+    <body>
+        
+        <div class="carousel-card">
+            <div class="card border-0">
+                <div class="position-relative">
+            
+                </div>
+                <div class="card-body text-center"> <!-- Center aligning text -->
+                    <h5 class="card-title">English</h5>
+                    <div class="card-text-container">
+                        <p class="card-text">
+                            Minim dolor in amet nulla laboris enim dolore consequat proident fugiat culpa eiusmod proiden.
+                            
+                        </p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="media align-items-center">
+                        <div class="footerright">
+                            <div class="tnlink3"><i class="fas fa-heart" aria-hidden="true"></i></div>
+                            <div class="tnlink3"><i class="fas fa-share-nodes" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="tiner">
+                <textarea class="use-keyboard-input"></textarea>        
+            </div>
+        </div>
+        
+
+
+        <script src="{{ url_for('static', path='/js/keyz.js') }}"></script>
+
+
+
+    </body>
+    </html>
+
+
+
+
+  
+{% endblock %}      

@@ -45,11 +45,12 @@ const Keyboard = {
       const fragment = document.createDocumentFragment();
       const keyLayout = [
           "a", "b", "d", "e", "ə", "f", "gh", "h", "I", "ị", "k",
-          "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
           "ʌ", "ñ", "a", "s", "d", "f", "g", "h", "j", "k", "l",
-          "done", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?",
-          "space"
-      ];
+           "backspace","caps", "a", "s", "d", "k", "l", "enter",
+            "done", "submit", "c", "v", "b", "n", "m", ",", ".", "?",
+            "space"
+    
+     ];
 
       // Creates HTML for an icon
       const createIconHTML = (icon_name) => {
@@ -63,6 +64,17 @@ const Keyboard = {
           // Add attributes/classes
           keyElement.setAttribute("type", "button");
           keyElement.classList.add("keyboard__key");
+
+          function handleSubmit(inputText, iconName) {
+            // Perform your submission logic here
+            // For example, you can send the inputText to a server using fetch API
+            // and then handle the response accordingly
+        
+            // Display a success message
+            console.log("Text submitted successfully!");
+        
+            // You can also display the icon name if neededconsole.log("Icon Name:", iconName);
+                }
 
           switch (key) {
               case "backspace":
@@ -97,6 +109,19 @@ const Keyboard = {
                   });
 
                   break;
+
+             
+              case "submit":
+                    keyElement.classList.add("keyboard__key--wide");
+                    keyElement.innerHTML = createIconHTML("send");
+                
+                    keyElement.addEventListener("click", () => {
+                        const inputText = document.querySelector('.use-keyboard-input').value;
+                        handleSubmit(inputText, "send");
+                        alert("Text submitted successfully!");
+                    });
+                
+                    break;
 
               case "space":
                   keyElement.classList.add("keyboard__key--extra-wide");

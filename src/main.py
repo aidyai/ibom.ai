@@ -95,7 +95,7 @@ async def ibom_api_page(request:Request):
 
 @app.get("/db/write")
 async def ibom_api_page(request:Request):
-    return templates.TemplateResponse("write.html", {"request":request})
+    return templates.TemplateResponse("ghost.html", {"request":request})
 
 
 @app.get("/db")
@@ -111,11 +111,11 @@ async def page(request:Request):
 async def page(request:Request):
     return templates.TemplateResponse("index.html", {"request":request})
 
-@app.get('/bd')
+@app.get('/x')
 async def page(request:Request):
     #user_data = {"email": "aidy@gmail.com"}
     #return templates.TemplateResponse("profile.html", {"request": request, "user_data": user_data})
-    return templates.TemplateResponse("pre.html", {"request":request})
+    return templates.TemplateResponse("ghost.html", {"request":request})
 
 
 

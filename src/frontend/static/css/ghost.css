@@ -1,0 +1,184 @@
+body {
+    /* margin: 0; */
+    padding: 20px;
+    /* display: flex; */
+    flex-direction: column;
+    /* min-height: 100vh; */
+    /* font-family: Roboto, sans-serif; */
+    line-height: 1.5;
+    /* color: #212529; */
+    /* background-color: #ced4da; */
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+.carousel-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #00000020;
+    border-radius: 0.8rem;
+    font-size: 0.9rem;
+    margin-top: 20px; /* Push the card down */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+    padding: 20px; /* Add padding to the card */
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem 1.25rem;
+}
+
+.card-footer {
+    padding: 1.25rem; /* Adjusted padding */
+    background-color: transparent;
+    border-top: 0;
+}
+
+.card-title {
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem; /* Adjusted font size for better visibility */
+    font-family: Roboto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.card-link + .card-link {
+    margin-left: 1.5rem;
+}
+
+
+
+.card-text-container {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    display: inline-block;
+    margin-top: 10px;
+    width: calc(100% - 20px); /* Set width to 100% minus 20px for padding */
+}
+
+.card-text {
+    margin-bottom: 1rem; /* Add margin to bottom */
+}
+
+/* Other styles 
+.card-title {
+    text-align: center; /* Center align text 
+    }
+*/
+
+.tiner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 22vh;
+}
+
+.use-keyboard-input {
+    font-size: 21px;
+    resize: none;
+    height: 4em;
+    width: 49em;
+}
+
+
+@media (max-width: 576px) {
+    .card-body,
+    .card-footer {
+        padding: 0.75rem; /* Further reduced padding for smaller screens */
+    }
+    
+    .card-title {
+        font-size: 1.2rem; /* Increased font size for better readability */
+    }
+
+    .use-keyboard-input {
+        font-size: 21px;
+        resize: none;
+        height: 2em;
+        width: 16em;
+    }
+}
+
+
+
+.keyboard {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 0;
+    background: #000000;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    user-select: none;
+    transition: bottom 0.4s;
+    }
+  
+  .keyboard--hidden {
+    bottom: -100%;
+  }
+  
+  .keyboard__keys {
+    text-align: center;
+  }
+  
+  .keyboard__key {
+    height: 45px;
+    width: 6%;
+    max-width: 90px;
+    margin: 3px;
+    border-radius: 4px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 1.05rem;
+    outline: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: top;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+  }
+  
+  .keyboard__key:active {
+    background: rgba(255, 255, 255, 0.12);
+  }
+  
+  .keyboard__key--wide {
+    width: 12%;
+  }
+  
+  .keyboard__key--extra-wide {
+    width: 36%;
+    max-width: 500px;
+  }
+  
+  .keyboard__key--activatable::after {
+    content: '';
+    top: 10px;
+    right: 10px;
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+  }
+  
+  .keyboard__key--active::after {
+    background: #08ff00;
+  }
+  
+  .keyboard__key--dark {
+    background: rgba(0, 0, 0, 0.25);
+  }
+  
