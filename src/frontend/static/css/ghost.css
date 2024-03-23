@@ -1,6 +1,6 @@
 body {
     /* margin: 0; */
-    padding: 20px;
+    /* padding: 20px; */
     /* display: flex; */
     flex-direction: column;
     /* min-height: 100vh; */
@@ -12,21 +12,18 @@ body {
     -ms-text-size-adjust: 100%;
 }
 
+
 .carousel-card {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid #00000020;
-    border-radius: 0.8rem;
+    margin: 0 auto; /* This centers the carousel horizontally */
+    width: 90%; /* Adjust the width as needed */
+    max-width: 800px; /* Set a maximum width to prevent it from becoming too wide on larger screens */
     font-size: 0.9rem;
-    margin-top: 20px; /* Push the card down */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow effect */
-    padding: 20px; /* Add padding to the card */
+    margin-top: 20px;
+    box-shadow: 0px 3px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
+
+
 
 .card-body {
     flex: 1 1 auto;
@@ -58,10 +55,10 @@ body {
 .card-text-container {
     border: 1px solid black;
     border-radius: 10px;
-    padding: 10px;
+    padding: 11px;
     display: inline-block;
-    margin-top: 10px;
-    width: calc(100% - 20px); /* Set width to 100% minus 20px for padding */
+    margin-top: 3px;
+    width: calc(100% - 2px);
 }
 
 .card-text {
@@ -84,10 +81,10 @@ body {
 .use-keyboard-input {
     font-size: 21px;
     resize: none;
-    height: 4em;
-    width: 49em;
+    height: 3em;
+    width: 26em;
+    margin-top: -71px;
 }
-
 
 @media (max-width: 576px) {
     .card-body,
@@ -103,7 +100,8 @@ body {
         font-size: 21px;
         resize: none;
         height: 2em;
-        width: 16em;
+        width: 15em;
+        margin-top: -80px;
     }
 }
 
