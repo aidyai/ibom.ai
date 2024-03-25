@@ -174,52 +174,6 @@
             </div>
         </div>
 
-        <div class="body-container">
-            <div class="fielded">
-                <div class="term">
-                    <h1 class="Word">ufiin</h1>
-                    <audio src="" class="phonetics-audio"></audio>
-                    <img width="50" height="50" src="https://img.icons8.com/material-rounded/50/speaker.png" alt="speaker" />
-                </div>
-                <h3 class="pos">noun</h3>
-
-                <div class="field3">
-                    <div class="definition">
-                        <p>1. Left (direction).</p>
-                    </div>
-                    <div class="definition">
-                        <p>2. Another definition.</p>
-                    </div>
-                    <div class="definition">
-                        <p>3. Yet another definition.</p>
-                    </div>
-                </div>
-
-                <div class="line-icons-container">
-                    <h2>Example Sentences</h2>
-                </div>
-
-                <div class="example-sentences">
-                    <div class="sentence">
-                        <div class="english-sentence">
-                            <p class="language-label">ake sanga aduk ufiin.</p>
-                        </div>
-                        <div class="french-sentence">
-                            <p class="language-label">Il est allé vers la gauche.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="related-terms">
-                    <h2>Related Terms</h2>
-                        <p class="related-terms-list">ufion, ufien</p>
-                </div>
-
-                <div class="separator"></div>
-            </div>
-
-        </div>
-
 
 
 
@@ -228,59 +182,11 @@
         <img id="speakerIcon" class="static" src="{{ url_for('static', path='img/play.png')}}" alt="microphone">
 
         
-        <input type="text" id="textInput" placeholder="Enter text...">
-        <button id="micButton">🎤</button>
-    
-        <!-- Add an audio element for playback -->
-        <audio id="audioPlayer" controls>
-            Your browser does not support the audio element.
-        </audio>
+
     
 
 
         <div class="body-container">
-            {% if results %}
-                <div class="fielded">
-                    <div class="term">
-                        <h1 class="Word">{{ results[0]['term'] }}</h1>
-                        <audio class="phonetics-audio"></audio>
-                        <img id="speakerIcon" width="50" height="50" src="https://img.icons8.com/material-rounded/50/speaker.png" alt="speaker" onclick="playTextToSpeech('{{ results[0]['term'] }}')" />
-                        <button class="button has-icon icon-send" onclick="toggleEditForm()">
-                            Edit
-                        </button>
-                    </div>
-        
-                    <h3 class="pos">{{ results[0]['pos'] }}</h3>
-        
-                    <div class="field3">
-                        {% for index in range(1, results[0]['definitions']|length + 1) %}
-                            <div class="definition">
-                                <p>{{ index }}. {{ results[0]['definitions'][index - 1] }}</p>
-                            </div>
-                        {% endfor %}
-                    </div>
-        
-                    <div class="line-icons-container">
-                        <h2>Example Sentences</h2>
-                    </div>     
-
-
-                    <div class="related-terms">
-                        <h2>Related Terms</h2>
-                        {% if results and results[0]['related_terms'] %}
-                            {% for term in results[0]['related_terms'].split(', ') %}
-                                <a href="/find?query={{ term }}">{{ term }}</a>{% if not loop.last %},{% endif %}
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-
-                    <div class="separator"></div>
-                    
-                </div>
-            {% else %}
-                <p>Not found</p>
-            {% endif %}
-
             {% if results %}
                 {% for result in results %}
                     <div class="fielded">
@@ -288,9 +194,9 @@
                             <h1 class="Word">{{ result['term'] }}</h1>
                             <audio class="phonetics-audio"></audio>
                             <img id="speakerIcon" width="50" height="50" src="https://img.icons8.com/material-rounded/50/speaker.png" alt="speaker" onclick="playTextToSpeech('{{ result['term'] }}')" />
-                            <button class="button has-icon icon-send" onclick="toggleEditForm()">
-                                Edit
-                            </button>
+                            <span class="has-icon" onclick="toggleEditForm()">
+                                <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/pencil-tip.png" alt="pencil-tip"/>
+                            </span>
                         </div>
                         <h3 class="pos">{{ result['pos'] }}</h3>
                         <div class="field3">
@@ -425,7 +331,6 @@
         <script src="{{ url_for('static', path='/js/search.js') }}"></script>-->
         <script src="{{ url_for('static', path='/js/nav.js') }}"></script>
         <script src="{{ url_for('static', path='/js/edit.js') }}"></script>
-        <script src="{{ url_for('static', path='/js/speaker.js') }}"></script>
         <script src="{{ url_for('static', path='/js/speaker.js') }}"></script>
         <script src="{{ url_for('static', path='/js/newform.js') }}"></script>
         <script src="{{ url_for('static', path='/js/auth.js') }}"></script>
