@@ -88,19 +88,24 @@ def find(request:Request, query: str = Query(..., title="Search Query", descript
     return templates.TemplateResponse("nav.html", {"request": request, "results": results})
     
 
-@app.get("/db/speak")
+@app.get("/speak")
 async def ibom_api_page(request:Request):
     return templates.TemplateResponse("speak.html", {"request":request})
 
 
-@app.get("/db/write")
+@app.get("/dict", response_class=HTMLResponse)
+async def dictionary(request:Request):
+    return templates.TemplateResponse("dict.html", {"request":request})
+
+
+@app.get("/write")
 async def ibom_api_page(request:Request):
     return templates.TemplateResponse("ghost.html", {"request":request})
 
 
-@app.get("/db")
+@app.get("/record")
 async def ibom_api_page(request:Request):
-    return templates.TemplateResponse("dash.html", {"request":request})
+    return templates.TemplateResponse("audio.html", {"request":request})
 
 
 @app.get('/gpt')

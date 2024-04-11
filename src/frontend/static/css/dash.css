@@ -1,13 +1,12 @@
 .continer {
-    background-color: white;
-    width: fit-content;
-    padding: 16.25px;
-    border-radius: 20px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
-    margin: auto;
-    margin-top: 45px;
-}
-
+  background-color: black;
+  width: fit-content;
+  padding: 16.25px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  margin-top: 45px;
+  }
 
 .inner-continer {
     background-color: transparent; /* Adjust as needed */

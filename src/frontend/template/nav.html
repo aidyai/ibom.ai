@@ -31,6 +31,7 @@
     <link href="{{ url_for('static', path='/css/sign.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/password.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/profile.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/css/drpn.css') }}" rel="stylesheet">
 
 
     <title>---</title>
@@ -97,8 +98,6 @@
 <!-- Overlay -->
 <div id="overlay" class="overlay"></div>
 
-
-
 <header id="nav-menu" aria-label="navigation bar">
   <div class="container">
     <div class="nav-start">
@@ -112,9 +111,55 @@
       </a>
       <nav class="menu">
         <ul class="menu-bar">
-            <li><a class="nav-link" href="/db">Dashboard</a></li>
+
+            <li>
+              <button
+                class="nav-link dropdown-btn"
+                data-dropdown="dropdown1"
+                aria-haspopup="true"
+                aria-expanded="false"
+                aria-label="browse"
+              >
+                Contribute
+                <i class="bx bx-chevron-down" aria-hidden="true"></i>
+              </button>
+              <div id="dropdown1" class="dropdown">
+                <ul role="menu">
+                  <li role="menuitem">
+                    <a class="dropdown-link" href="/record">
+                        <img class="icon" width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/audio-wave--v1.png" alt="audio-wave--v1"/>
+                      <div>
+                        <span class="dropdown-link-title"
+                          >Record Voice</span
+                        >
+                        <p>Contribute Native Voice</p>
+                      </div>
+                    </a>
+                  </li>
+
+                  <li role="menuitem">
+                    <a class="dropdown-link" href="/write">
+                        <img class="icon" width="32" height="32" src="https://img.icons8.com/external-anggara-glyph-anggara-putra/32/external-write-email-interface-anggara-glyph-anggara-putra.png" alt="external-write-email-interface-anggara-glyph-anggara-putra"/>
+                      <div>
+                        <span class="dropdown-link-title">Ibibio</span>
+                        <p>Contribute Ibibio<->English Words</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li role="menuitem">
+                    <a class="dropdown-link" href="/suggest">
+                        <img class="icon" width="38" height="38" src="https://img.icons8.com/ios-filled/38/audio-wave--v1.png" alt="audio-wave--v1"/>                      <div>
+                        <span class="dropdown-link-title">English</span>
+                        <p>Contribute English<->Ibibio </p>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+
+              </div>
+            </li>
+            <li><a class="nav-link" href="/dict">Dictionary</a></li>
             <li><a class="nav-link" href="/gpt">IbomGpt</a></li>
-            <li><a class="nav-link" href="/">Learn</a></li>
             <li><a class="nav-link" href="/">About</a></li>
             <li>
                 <button class="nav-link dropdown-btn" data-dropdown="dropdown2" aria-haspopup="true" aria-expanded="false" aria-label="discover">
@@ -122,9 +167,6 @@
                 </button>
                 <div id="dropdown2" class="dropdown">
                     <ul role="menu">
-                        <a href="#profile">
-                            <img width="48" height="48" src="https://img.icons8.com/color/48/circled-user-male-skin-type-5--v1.png" alt="circled-user-male-skin-type-5--v1"/>
-                        </a>
                         <a href="#" class="bu3tton" id="registerButton">Register</a>
                         <a href="#" class="bu3tton" id="loginButton">Login</a>
                     </ul>                
@@ -156,6 +198,7 @@
     </div>
   </div>
 </header>
+
 
 
   <!-- Page markup: Not important -->
