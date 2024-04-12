@@ -242,7 +242,7 @@
                                 <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/pencil-tip.png" alt="pencil-tip"/>
                             </span>
                         </div>
-                        <h3 class="pos">{{ result['pos'] }}</h3>
+                        <h2 class="pos">{{ result['pos'] }}</h2>
                         <div class="field3">
                             {% for definition in result['definitions'] %}
                                 <div class="definition">
@@ -251,10 +251,10 @@
                             {% endfor %}
                         </div>
                         <div class="line-icons-container">
-                            <h2>Example Sentences</h2>
+                            <h2 class="Word">Example Sentences</h2>
                         </div>
                         <div class="related-terms">
-                            <h2>Related Terms</h2>
+                            <h3 class="Word">Related Terms</h3>
                             {% if result['related_terms'] %}
                                 {% for term in result['related_terms'].split(', ') %}
                                     <a href="/find?query={{ term }}">{{ term }}</a>{% if not loop.last %},{% endif %}

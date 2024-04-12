@@ -6,12 +6,11 @@
 }
 
 
-.related-terms,
+
 .example-sentences {
     margin-top: 20px; /* Add spacing between sections */
 }
 
-.related-terms h3,
 .example-sentences h3 {
     font-size: 18px;
 }
