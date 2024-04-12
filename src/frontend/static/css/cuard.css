@@ -1,0 +1,102 @@
+/* Styling for the .cad container */
+.cad {
+    max-width: 800px; /* Adjust the maximum width as needed */
+    width: 90%; /* Set width to 90% of the viewport width */
+    margin: 0 auto; /* Center the element horizontally */
+    background-color: #fff;
+    padding: 20px;
+    border: 2px solid #d1caca; /* Outline around the card */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
+    margin-bottom: 20px; /* Add margin below each card to create spacing */
+
+}
+
+/* Styling for the header within .cad */
+.headar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.headar h1 {
+    margin: 0;
+}
+
+.headar .icons {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 5px; /* Add spacing between icons */
+}
+
+
+.noun {
+    color: red;
+    margin-bottom: 30px;
+    margin-top: -23px;
+}
+
+.contint {
+    margin-top: 10px; /* Adjust spacing below h3 */
+}
+
+.example-suntences,
+.related-tuerms {
+    margin-top: 20px;
+}
+
+.teurms {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.teurm {
+    display: inline-block;
+    padding: 5px 10px;
+    margin: 5px;
+    background-color: #eef91d;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000000;
+}
+
+
+
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .cad {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .noun {
+        color: red;
+        margin-bottom: 30px;
+        margin-top: -23px;
+        font-size: smaller;
+    }
+
+    .headar h1 {
+        font-size: 22px;
+    }
+
+
+    .suntences h2 {
+        font-size: 15px;
+    }
+
+    .relateed-teurms h3 {
+        font-size: 13px;
+    }
+}

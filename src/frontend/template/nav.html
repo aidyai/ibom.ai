@@ -32,6 +32,8 @@
     <link href="{{ url_for('static', path='/css/password.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/profile.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', path='/css/drpn.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', path='/css/cuard.css') }}" rel="stylesheet">
+
 
 
     <title>---</title>
@@ -227,47 +229,44 @@
 
         
 
-    
-
-
-        <div class="body-container">
+        <div class="cdiv">
             {% if results %}
                 {% for result in results %}
-                    <div class="fielded">
-                        <div class="term">
+                    <div class="cad">
+                        <div class="headar">
                             <h1 class="Word">{{ result['term'] }}</h1>
-                            <audio class="phonetics-audio"></audio>
-                            <img id="speakerIcon" width="50" height="50" src="https://img.icons8.com/material-rounded/50/speaker.png" alt="speaker" onclick="playTextToSpeech('{{ result['term'] }}')" />
-                            <span class="has-icon" onclick="toggleEditForm()">
-                                <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/pencil-tip.png" alt="pencil-tip"/>
-                            </span>
+                            <div class="icons">
+                                <audio class="phonetics-audio"></audio>
+                                <img width="30" height="30" src="https://img.icons8.com/material-rounded/50/speaker.png" alt="Speaker Icon" class="icon">                  
+                                <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/pencil-tip.png" alt="Microphone Icon" class="icon" onclick="toggleEditForm()">                              
+                            </div>
                         </div>
-                        <h2 class="pos">{{ result['pos'] }}</h2>
-                        <div class="field3">
+                        <h2 class="noun">{{ result['pos'] }}</h3>
+                        <div class="contint">
                             {% for definition in result['definitions'] %}
                                 <div class="definition">
                                     <p>{{ loop.index }}. {{ definition }}</p>
                                 </div>
                             {% endfor %}
                         </div>
-                        <div class="line-icons-container">
-                            <h2 class="Word">Example Sentences</h2>
+                        <div class="suntences">
+                            <h2 class="example-suntences">Example Sentences</h2>
+                            <p>1.sum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>
-                        <div class="related-terms">
-                            <h3 class="Word">Related Terms</h3>
+                        <h3 class="relateed-teurms">Related Terms</h2>
+                        <div class="teurms">
                             {% if result['related_terms'] %}
                                 {% for term in result['related_terms'].split(', ') %}
-                                    <a href="/find?query={{ term }}">{{ term }}</a>{% if not loop.last %},{% endif %}
+                                    <a href="/find?query={{ term }}" class="teurm">{{ term }}</a>{% if not loop.last %} {% endif %}
                                 {% endfor %}
                             {% endif %}
                         </div>
-                        <div class="separator"></div>
                     </div>
                 {% endfor %}
             {% else %}
-                <p>Not found</p>
+               <p>Not found</p>
             {% endif %}
-        
+
             <div id="editForm" class="popup-form" style="display: none;">
                 <h2>Edit Dictionary Entry</h2>
                 <form id="editDictionaryForm" onsubmit="saveContent(); return false;">
@@ -304,17 +303,8 @@
 
                 </form>
             </div>
-            
-
-
         </div>
-        
 
-
-
-
-
-    
 
         {% endblock %}
     </div>
