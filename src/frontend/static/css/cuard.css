@@ -4,12 +4,12 @@
     width: 90%; /* Set width to 90% of the viewport width */
     margin: 0 auto; /* Center the element horizontally */
     background-color: #fff;
-    padding: 20px;
-    border: 2px solid #d1caca; /* Outline around the card */
+    padding: 20px;    
+    /* 
+    border: 2px solid #d1caca; 
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-
+    */
     margin-bottom: 20px; /* Add margin below each card to create spacing */
 
 }
@@ -63,7 +63,7 @@
     display: inline-block;
     padding: 5px 10px;
     margin: 5px;
-    background-color: #eef91d;
+    background-color: #00ffff;
     border-radius: 5px;
     text-decoration: none;
     color: #000000;
@@ -99,4 +99,14 @@
     .relateed-teurms h3 {
         font-size: 13px;
     }
+}
+
+
+
+
+
+.logo img {
+    height: 89px;
+    width: 220px;
+    margin-left: -41px;
 }
