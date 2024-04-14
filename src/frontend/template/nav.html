@@ -224,11 +224,11 @@
 
 
 
-        <input type="text" id="textInput" placeholder="Enter text...">
+        <!--<input type="text" id="textInput" placeholder="Enter text...">
         <img id="speakerIcon" class="static" src="{{ url_for('static', path='img/play.png')}}" alt="microphone">
-
-        
-
+      
+        <img id="speakerIcon" class="static" width="30" height="30" src="https://img.icons8.com/ios-filled/30/high-volume--v2.png">
+  -->
         <div class="cdiv">
             {% if results %}
                 {% for result in results %}
@@ -237,7 +237,7 @@
                             <h1 class="Word">{{ result['term'] }}</h1>
                             <div class="icons">
                                 <audio class="phonetics-audio"></audio>
-                                <img width="30" height="30" src="https://img.icons8.com/material-rounded/50/speaker.png" alt="Speaker Icon" class="icon">                  
+                                <img width="30" height="30" src="https://img.icons8.com/ios-filled/30/high-volume--v2.png" alt="high-volume--v2" class="icon speakerIcon">
                                 <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/pencil-tip.png" alt="Microphone Icon" class="icon" onclick="toggleEditForm()">                              
                             </div>
                         </div>

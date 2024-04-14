@@ -3,3 +3,8 @@ Making dropdown menus with CSS
 
 Ibadehin Mojeed
 I'm an advocate of project-based learning. I also write technical content around web development.
+
+
+<a target="_blank" href="https://icons8.com/icon/MYTpSiqlacc5/audio">Audio</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
+<a target="_blank" href="https://icons8.com/icon/diVRIBCMjeyO/loading-circle">Loading</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
