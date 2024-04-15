@@ -8,10 +8,11 @@
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "src/main.py",
-        "methods": ["GET", "POST"]    
+        "dest": "src/main.py"
       }
 
     ]
 
 }
+
+
