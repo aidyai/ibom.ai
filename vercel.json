@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "name": "iko-ibibio",
+    "builds": [{ 
+            "src": "src/main.py",
+            "use": "@vercel/python"}
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "src/main.py",
+        "methods": ["GET", "POST"]    
+      }
+
+    ]
+
+}
