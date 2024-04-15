@@ -10,8 +10,8 @@ import uvicorn
 #if __name__ == "__main__":
 #  uvicorn.run("src.main:app", port=8000, reload=True)
 
-PORT = int(8000)
-#PORT = int(10000)
+#PORT = int(8000)
+PORT = int(10000)
 HOST = '0.0.0.0'
 
 if __name__ == "__main__":
