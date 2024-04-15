@@ -1,4 +1,3 @@
-import uvicorn
 import re
 import pathlib
 from pathlib import Path

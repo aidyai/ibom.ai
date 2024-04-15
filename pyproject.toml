@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "Yes"
+python = "^3.9"
 whitenoise = "^6.6.0"
 fastapi = "^0.110.1"
 Pyrebase4 = "^4.7.1"
