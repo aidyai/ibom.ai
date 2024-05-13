@@ -27,7 +27,7 @@
 
 .search-box:focus-within {
     border-color: #464244;
-    box-shadow: 0 0 0 5px rgba(255, 0, 128, 0.40);
+    box-shadow: 0 0 0 5px rgb(0, 0, 0);
 }
 
 #search-input {

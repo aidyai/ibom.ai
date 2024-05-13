@@ -39,7 +39,7 @@
 
 
 .noun {
-    color: red;
+    color: #000000;
     margin-bottom: 30px;
     margin-top: -23px;
 }
@@ -63,7 +63,7 @@
     display: inline-block;
     padding: 5px 10px;
     margin: 5px;
-    background-color: #00ffff;
+    background-color: #fbcea1;
     border-radius: 5px;
     text-decoration: none;
     color: #000000;
@@ -81,7 +81,7 @@
     }
 
     .noun {
-        color: red;
+        color: rgb(0, 0, 0);
         margin-bottom: 30px;
         margin-top: -23px;
         font-size: smaller;
@@ -106,7 +106,16 @@
 
 
 .logo img {
-    height: 89px;
-    width: 220px;
-    margin-left: -41px;
+    height: 51px;
+    width: 104px;
+    margin-left: 18px;
+}
+
+
+.suntences p img {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin-right: 1px;
+    margin-top: -1px;
 }

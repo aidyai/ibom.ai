@@ -112,7 +112,7 @@
     <div class="nav-start">
       <a class="logo" href="/">
         <img
-          src="{{ url_for('static', path='img/wiko.png')}}"
+          src="{{ url_for('static', path='img/xt.jpg')}}"
           width="140"
           height="140"
           alt="Inc Logo"
@@ -256,9 +256,13 @@
                                 </div>
                             {% endfor %}
                         </div>
+
                         <div class="suntences">
-                            <h2 class="example-suntences">Example Sentences</h2>
-                            <p>1.sum dolor sit amet, consectetur adipiscing elit.</p>
+                            <h2 class="example-sentences">Example Sentences</h2>
+                            <p>
+                                <img class="spinner-icon" width="20" height="20" src="https://img.icons8.com/ios-glyphs/30/speaker.png" alt="speaker"/>
+                                1. Example sentences, for each Ibibio word will be coming soon.
+                            </p>
                         </div>
                         <h3 class="relateed-teurms">Related Terms</h2>
                         <div class="teurms">
@@ -378,6 +382,7 @@
         <script src="{{ url_for('static', path='/js/avatar.js') }}"></script>
         <script src="{{ url_for('static', path='/js/pop.js') }}"></script>
         <script src="{{ url_for('static', path='/js/password.js') }}"></script>
+        <script src="{{ url_for('static', path='/js/spnr.js') }}"></script>
 
 
 

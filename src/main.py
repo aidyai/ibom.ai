@@ -95,7 +95,7 @@ async def ibom_api_page(request:Request):
 
 @app.get("/dict", response_class=HTMLResponse)
 async def dictionary(request:Request):
-    return templates.TemplateResponse("dict.html", {"request":request})
+    return templates.TemplateResponse("nav.html", {"request":request})
 
 
 @app.get("/write")
