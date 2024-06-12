@@ -1,0 +1,375 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+nav {
+    background-color: #333;
+    color: white;
+    display: flex;
+    padding: 1em;
+}
+
+nav .nav-item {
+    margin-right: 1em;
+    cursor: pointer;
+}
+
+nav .active {
+    font-weight: bold;
+}
+
+nav .beta {
+    background-color: purple;
+    padding: 0.2em 0.5em;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+aside {
+    background-color: #f4f4f4;
+    padding: 1em;
+}
+
+aside .menu-item {
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+
+aside .credits {
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+aside .new {
+    background-color: red;
+    color: white;
+    padding: 0.2em 0.5em;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+main {
+    flex-grow: 1;
+    padding: 1em;
+}
+
+.library-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.tabs {
+    display: flex;
+}
+
+.tab {
+    margin-right: 1em;
+    cursor: pointer;
+}
+
+.tab.active {
+    font-weight: bold;
+}
+
+.search input {
+    padding: 0.5em;
+    width: 300px;
+}
+
+.song-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.song-item img {
+    width: 80px;
+    height: 80px;
+    margin-right: 1em;
+}
+
+.song-details h2 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+
+.song-details .version {
+    background-color: #333;
+    color: white;
+    padding: 0.2em 0.5em;
+    border-radius: 5px;
+    font-size: 0.8em;
+    margin-left: 0.5em;
+}
+
+.song-actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.song-actions i {
+    margin: 0 0.5em;
+    cursor: pointer;
+}
+
+.extend-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    margin-right: 1em;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+    margin-right: 1em;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #333;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Responsive design */
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .library-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tabs {
+        flex-wrap: wrap;
+    }
+
+    .search input {
+        width: 100%;
+        margin-top: 1em;
+    }
+
+    .song-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .song-item img {
+        margin-bottom: 1em;
+    }
+
+    .song-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .song-actions i {
+        margin: 0.5em 0;
+    }
+}
+
+/* Additional styles for better appearance */
+body {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+nav {
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+aside {
+    background-color: #eee;
+    padding: 1.5em;
+    width: 200px;
+}
+
+.container {
+    flex-direction: row;
+}
+
+main {
+    flex-grow: 1;
+    background-color: #fff;
+    padding: 1.5em;
+    border-left: 1px solid #ddd;
+}
+
+.library-header h1 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.tabs .tab {
+    padding: 0.5em 1em;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-right: 0.5em;
+}
+
+.tabs .tab.active {
+    background-color: #333;
+    color: white;
+}
+
+.song-item {
+    background-color: #f9f9f9;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.song-details p {
+    margin: 0.5em 0 0;
+    color: #666;
+}
+/* Additional responsive design tweaks */
+
+@media (max-width: 768px) {
+    nav {
+        justify-content: center;
+    }
+    
+    .library-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tabs {
+        flex-wrap: wrap;
+    }
+
+    .search input {
+        margin-top: 1em;
+    }
+
+    .song-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .song-item img {
+        margin-bottom: 1em;
+    }
+}
+
+/* Additional styles for better appearance */
+body {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+nav {
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+aside {
+    background-color: #eee;
+    padding: 1.5em;
+    width: 200px;
+}
+
+.container {
+    flex-direction: row;
+}
+
+main {
+    flex-grow: 1;
+    background-color: #fff;
+    padding: 1.5em;
+    border-left: 1px solid #ddd;
+}
+
+.library-header h1 {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.tabs .tab {
+    padding: 0.5em 1em;
+    background-color: #ddd;
+    border-radius: 5px;
+    margin-right: 0.5em;
+}
+
+.tabs .tab.active {
+    background-color: #333;
+    color: white;
+}
+
+.song-item {
+    background-color: #f9f9f9;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.song-details p {
+    margin: 0.5em 0 0;
+    color: #666;
+}

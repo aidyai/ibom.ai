@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="{{ url_for('static', path='/css/suno.css') }}" rel="stylesheet">
+
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="nav-item">Home</div>
+            <div class="nav-item">Create</div>
+            <div class="nav-item active">Library</div>
+            <div class="nav-item">Explore <span class="beta">BETA</span></div>
+            <div class="nav-item">Search</div>
+        </nav>
+        <aside>
+            <div class="credits">550 credits</div>
+            <div class="menu-item">Subscribe</div>
+            <div class="menu-item">What's New? <span class="new">17</span></div>
+            <div class="menu-item">Help</div>
+            <div class="menu-item">About</div>
+        </aside>
+        <main>
+            <div class="library-header">
+                <h1>Library</h1>
+                <div class="tabs">
+                    <div class="tab active">Songs</div>
+                    <div class="tab">Playlists</div>
+                    <div class="tab">Following</div>
+                    <div class="tab">Followers</div>
+                </div>
+                <div class="search">
+                    <input type="text" placeholder="Search by song name, style or the lyrics">
+                </div>
+            </div>
+            <div class="song-list">
+                <div class="song-item">
+                    <img src="song-image1.jpg" alt="Bay Area 2024">
+                    <div class="song-details">
+                        <h2>Bay Area 2024 <span class="version">v3</span></h2>
+                        <p>ethereal darkwave, ethereal goth, neoclassical dark wave, dream pop, and cold wave</p>
+                    </div>
+                    <div class="song-actions">
+                        <i class="fas fa-thumbs-up"></i>
+                        <i class="fas fa-thumbs-down"></i>
+                        <button class="extend-btn">Extend</button>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fas fa-share"></i>
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
+                <div class="song-item">
+                    <img src="song-image2.jpg" alt="Bay Area Dreams">
+                    <div class="song-details">
+                        <h2>Bay Area Dreams <span class="version">v3</span></h2>
+                        <p>New Age</p>
+                    </div>
+                    <div class="song-actions">
+                        <i class="fas fa-thumbs-up"></i>
+                        <i class="fas fa-thumbs-down"></i>
+                        <button class="extend-btn">Extend</button>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fas fa-share"></i>
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
+                <div class="song-item">
+                    <img src="song-image3.jpg" alt="Bay Area Dreams">
+                    <div class="song-details">
+                        <h2>Bay Area Dreams <span class="version">v3</span></h2>
+                        <p>New Age</p>
+                    </div>
+                    <div class="song-actions">
+                        <i class="fas fa-thumbs-up"></i>
+                        <i class="fas fa-thumbs-down"></i>
+                        <button class="extend-btn">Extend</button>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                        <i class="fas fa-share"></i>
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

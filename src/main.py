@@ -97,6 +97,10 @@ async def ibom_api_page(request:Request):
 async def dictionary(request:Request):
     return templates.TemplateResponse("nav.html", {"request":request})
 
+@app.get("/suno", response_class=HTMLResponse)
+async def dictionary(request:Request):
+    return templates.TemplateResponse("suno.html", {"request":request})
+
 
 @app.get("/write")
 async def ibom_api_page(request:Request):
